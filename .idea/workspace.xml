@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Set up the bot">
-      <change afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add Logger">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/WebContentDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/WebContentDownloader.java" afterDir="false" />
     </list>
@@ -81,7 +82,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700049225362</updated>
-      <workItem from="1700049226373" duration="10660000" />
+      <workItem from="1700049226373" duration="12363000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -91,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700059668040</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Logger">
+      <option name="closed" value="true" />
+      <created>1700062924767</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700062924767</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +109,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Set up the bot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set up the bot" />
+    <MESSAGE value="Add Logger" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Logger" />
   </component>
 </project>
