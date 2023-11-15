@@ -14,28 +14,30 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
 
 public class EconomistBot {
+    private static final Logger LOGGER = Logger.getLogger(EconomistBot.class.getName());
     private static final Set<Long> subscribedUsers = new HashSet<>();
     private static final ZoneId KYIV_ZONE_ID = ZoneId.of("Europe/Kiev");
-    private static final String BOT_TOKEN = "6530358402:AAG28dxK3SQCjlPIYayi-aysMNAI8oOZcyw"; // Replace with your bot token
+    private static final String BOT_TOKEN = "6530358402:AAG28dxK3SQCjlPIYayi-aysMNAI8oOZcyw";
 
     public static void main(String[] args) {
         TelegramBot bot = new TelegramBot(BOT_TOKEN);
 
         bot.setUpdatesListener(updates -> {
             for (Update update : updates) {
+                LOGGER.info("Received update: " + update);
                 if (update.message() != null && "/start".equals(update.message().text())) {
                     long chatId = update.message().chat().id();
-                    subscribedUsers.add(chatId); // Add user to subscribed users
-                    System.out.println("User subscribed. Chat ID: " + chatId);
-                    sendNewsUpdate(bot, chatId); // Send news to the user
+                    subscribedUsers.add(chatId);
+                    LOGGER.info("User subscribed. Chat ID: " + chatId);
+                    sendNewsUpdate(bot, chatId);
                 }
             }
             return UpdatesListener.CONFIRMED_UPDATES_ALL;
         });
 
-        // Schedule the task to run daily at 9 AM Kyiv time
         scheduleDailyTask(bot);
     }
 
@@ -60,11 +62,11 @@ public class EconomistBot {
 
     private static void sendNewsUpdate(TelegramBot bot, long chatId) {
         try {
-            System.out.println("Sending news update to Chat ID: " + chatId);
+            LOGGER.info("Sending news update to Chat ID: " + chatId);
             String formattedContent = WebContentDownloader.downloadContent();
             bot.execute(new SendMessage(chatId, formattedContent).parseMode(ParseMode.HTML));
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGGER.severe("Error sending news update: " + e.getMessage());
         }
     }
 }

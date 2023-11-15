@@ -8,25 +8,33 @@ import java.io.IOException;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
 import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.logging.Logger;
 
 public class WebContentDownloader {
 
+    private static final Logger LOGGER = Logger.getLogger(WebContentDownloader.class.getName());
+
     public static void main(String[] args) {
         try {
+            LOGGER.info("Starting WebContentDownloader main method...");
             String content = downloadContent();
             if (content != null) {
-                System.out.println(content);
+                LOGGER.info("Content downloaded successfully.");
+                // LOGGER.info(content); // Uncomment if you want to log the content
             } else {
-                System.out.println("No content fetched.");
+                LOGGER.warning("No content fetched.");
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.severe("Error in downloading content: " + e.getMessage());
         }
     }
 
     public static String downloadContent() throws IOException {
+        LOGGER.info("Starting content download...");
         String url = "https://www.economist.com/the-world-in-brief";
-        Document document = Jsoup.connect(url).get();
+        Document document = Jsoup.connect(url).header("Content-Type", "text/html; charset=utf-8").get();
+        LOGGER.info("Connected to URL: " + url);
         String bodyHtml = document.select("body").html();
 
         String startMarker = "<section class=\"css-1w4nt3t e1mdtgh40\">";
@@ -76,9 +84,12 @@ public class WebContentDownloader {
         }
     }
 
-    private static void saveToFile(String content, String fileName) throws IOException {
-        try (FileOutputStream out = new FileOutputStream(fileName)) {
-            out.write(content.getBytes());
+    private static void saveToFile(String content, String fileName) {
+        try (FileOutputStream outputStream = new FileOutputStream(fileName)) {
+            outputStream.write(content.getBytes(StandardCharsets.UTF_8));
+            LOGGER.info("Saved content to file: " + fileName);
+        } catch (IOException e) {
+            LOGGER.severe("Error saving content to file: " + e.getMessage());
         }
     }
 }
