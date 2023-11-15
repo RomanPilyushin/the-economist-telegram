@@ -15,6 +15,11 @@ dependencies {
     implementation("org.jsoup:jsoup:1.16.2")
     //implementation ("com.github.pengrad:java-telegram-bot-api:6.9.1")
     implementation ("org.telegram:telegrambots:6.8.0")
+    // https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark
+    implementation ("com.vladsch.flexmark:flexmark-all:0.62.2")
+
+
+
 
 }
 

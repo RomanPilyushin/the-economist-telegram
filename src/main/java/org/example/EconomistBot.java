@@ -1,5 +1,10 @@
 package org.example;
 
+import com.vladsch.flexmark.html2md.converter.FlexmarkHtmlConverter;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -8,9 +13,12 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
+
 
 public class EconomistBot extends TelegramLongPollingBot {
     private static final int MAX_MESSAGE_LENGTH = 4096; // Maximum length of a Telegram message
@@ -72,6 +80,28 @@ public class EconomistBot extends TelegramLongPollingBot {
         }
     }
 
+    private String prepareHtmlContent(String htmlContent) {
+        // Parse the HTML content
+        Document document = Jsoup.parse(htmlContent);
+
+        // Remove all script and style elements
+        document.select("script, style").forEach(Element::remove);
+
+        // Extract plain text from the document
+        String plainText = document.text();
+
+        // Insert newline characters to format the text
+        // This is a basic example and may need to be adjusted based on actual text patterns
+        String formattedText = plainText.replaceAll("(\\. )", ".\n\n")
+                .replaceAll("(\\? )", "?\n\n")
+                .replaceAll("(\\! )", "!\n\n");
+
+        LOGGER.info("Formatted Plain Text: " + formattedText); // Log the formatted text
+        return formattedText;
+    }
+
+
+
     /**
      * Sends a long message by splitting it into smaller parts if necessary.
      * @param chatId The chat ID to send the message to.
@@ -94,7 +124,7 @@ public class EconomistBot extends TelegramLongPollingBot {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
         message.setText(text);
-        message.setParseMode("HTML"); // Use HTML parse mode
+        // No parse mode should be set
         try {
             execute(message);
         } catch (TelegramApiException e) {
@@ -102,31 +132,54 @@ public class EconomistBot extends TelegramLongPollingBot {
         }
     }
 
+    private List<String> extractNewsBlocks(String htmlContent) {
+        List<String> newsBlocks = new ArrayList<>();
+        Document document = Jsoup.parse(htmlContent);
+
+        Elements potentialNewsElements = document.select("p, div._article.ds-layout-grid");
+
+        for (Element element : potentialNewsElements) {
+            StringBuilder newsText = new StringBuilder();
+
+            if (element.tagName().equals("div") && element.hasClass("_article ds-layout-grid")) {
+                // Extract the headline if available
+                String headline = element.select("h3._headline").text();
+                if (!headline.isEmpty()) {
+                    newsText.append(headline).append("\n\n");
+                }
+
+                // Add the text from each paragraph within the div
+                Elements paragraphs = element.select("p");
+                for (Element paragraph : paragraphs) {
+                    newsText.append(paragraph.text()).append("\n\n");
+                }
+            } else if (element.tagName().equals("p")) {
+                // If it's a standalone <p> tag, add its text
+                newsText.append(element.text());
+            }
+
+            if (!newsText.toString().trim().isEmpty()) {
+                newsBlocks.add(newsText.toString().trim());
+            }
+        }
+
+        return newsBlocks;
+    }
+
     private void sendNewsUpdate(long chatId) {
         try {
             LOGGER.info("Sending news update to Chat ID: " + chatId);
             String htmlContent = WebContentDownloader.downloadContent();
-            String preparedContent = prepareHtmlContent(htmlContent);
-            sendLongMessage(chatId, preparedContent);
+            LOGGER.info("Downloaded Content: " + htmlContent);
+
+            List<String> newsBlocks = extractNewsBlocks(htmlContent);
+            for (String newsBlock : newsBlocks) {
+                sendLongMessage(chatId, newsBlock);
+            }
         } catch (IOException e) {
             LOGGER.severe("Error sending news update: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    /**
-     * Prepares HTML content for sending to Telegram.
-     * @param htmlContent The HTML content to be prepared.
-     * @return The content formatted for Telegram HTML.
-     */
-    private String prepareHtmlContent(String htmlContent) {
-        // This method should take the HTML content and make sure it's ready
-        // to be sent as an HTML message to Telegram.
-        // It should handle necessary HTML tag conversions if needed and ensure
-        // that the HTML is safe to send and display.
-
-        // For now, let's assume the content is ready and does not require further processing.
-        // You may need to implement additional logic depending on your HTML content.
-        return htmlContent;
-    }
 }
