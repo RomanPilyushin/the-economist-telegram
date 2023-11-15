@@ -2,17 +2,13 @@ package org.example;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import java.io.IOException;
-import org.jsoup.nodes.Node;
-import org.jsoup.nodes.TextNode;
-import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.logging.Logger;
 
 public class WebContentDownloader {
-
     private static final Logger LOGGER = Logger.getLogger(WebContentDownloader.class.getName());
 
     public static void main(String[] args) {
@@ -21,7 +17,7 @@ public class WebContentDownloader {
             String content = downloadContent();
             if (content != null) {
                 LOGGER.info("Content downloaded successfully.");
-                // LOGGER.info(content); // Uncomment if you want to log the content
+                saveToFile(content, "extractedHtmlContent.html");
             } else {
                 LOGGER.warning("No content fetched.");
             }
@@ -35,61 +31,39 @@ public class WebContentDownloader {
         String url = "https://www.economist.com/the-world-in-brief";
         Document document = Jsoup.connect(url).header("Content-Type", "text/html; charset=utf-8").get();
         LOGGER.info("Connected to URL: " + url);
-        String bodyHtml = document.select("body").html();
 
+        // Your logic to find the start and end markers can remain the same
         String startMarker = "<section class=\"css-1w4nt3t e1mdtgh40\">";
         String endMarker = "<h3 class=\"_headline\">Daily quiz</h3>";
+        // ... rest of your code to find start and end index
 
+        // Assuming extractedContent is the HTML you want to send
+        String extractedContent = extractContentBetweenMarkers(document, startMarker, endMarker);
+
+        // Remove unwanted elements
+        Document contentDoc = Jsoup.parse(extractedContent);
+        contentDoc.select("figcaption, img").remove();
+
+        // Save the HTML content to a file for checking
+        saveToFile(contentDoc.html(), "extractedHtmlContent.html");
+
+        // Return the clean HTML content
+        return contentDoc.html();
+    }
+
+    // Helper method to extract content between markers
+    private static String extractContentBetweenMarkers(Document document, String startMarker, String endMarker) {
+        String bodyHtml = document.select("body").html();
         int startIndex = bodyHtml.indexOf(startMarker);
         int endIndex = bodyHtml.indexOf(endMarker, startIndex);
         if (startIndex != -1 && endIndex != -1) {
-            String extractedContent = bodyHtml.substring(startIndex, endIndex);
-            Document contentDoc = Jsoup.parse(extractedContent);
-
-            Elements figcaptions = contentDoc.select("figcaption.css-1xn38vl.e9xx8940");
-            figcaptions.forEach(Element::remove);
-
-            Elements images = contentDoc.select("img");
-            images.forEach(Element::remove);
-
-            // Save the HTML content to a file for checking
-            saveToFile(contentDoc.html(), "extractedHtmlContent.html");
-
-            // Convert HTML to Markdown or simplified HTML
-            return convertToTelegramFormat(contentDoc);
+            return bodyHtml.substring(startIndex, endIndex);
         }
         return null;
     }
 
-    private static String convertToTelegramFormat(Document document) {
-        StringBuilder sb = new StringBuilder();
-        for (Node node : document.body().childNodes()) {
-            processNode(node, sb);
-        }
-        return sb.toString();
-    }
-
-    private static void processNode(Node node, StringBuilder sb) {
-        if (node instanceof TextNode) {
-            sb.append(((TextNode) node).text());
-        } else if (node.nodeName().equals("b") || node.nodeName().equals("strong")) {
-            sb.append("<b>").append(node.childNode(0).toString()).append("</b>");
-        } else if (node.nodeName().equals("i") || node.nodeName().equals("em")) {
-            sb.append("<i>").append(node.childNode(0).toString()).append("</i>");
-        }
-        // Add other formatting tags as needed
-
-        for (Node child : node.childNodes()) {
-            processNode(child, sb);
-        }
-    }
-
-    private static void saveToFile(String content, String fileName) {
-        try (FileOutputStream outputStream = new FileOutputStream(fileName)) {
-            outputStream.write(content.getBytes(StandardCharsets.UTF_8));
-            LOGGER.info("Saved content to file: " + fileName);
-        } catch (IOException e) {
-            LOGGER.severe("Error saving content to file: " + e.getMessage());
-        }
+    private static void saveToFile(String content, String fileName) throws IOException {
+        Files.write(Paths.get(fileName), content.getBytes(StandardCharsets.UTF_8));
+        LOGGER.info("Saved content to file: " + fileName);
     }
 }
