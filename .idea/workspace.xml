@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit fatJar">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add Gradle Wrapper">
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +116,7 @@
       <workItem from="1700139680769" duration="7000" />
       <workItem from="1700139877881" duration="1694000" />
       <workItem from="1700141590252" duration="1486000" />
-      <workItem from="1700144785653" duration="124000" />
+      <workItem from="1700144785653" duration="453000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -268,7 +262,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700141946002</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Add Gradle Wrapper">
+      <option name="closed" value="true" />
+      <created>1700144994623</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1700144994623</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +296,8 @@
     <MESSAGE value="Add manifest to jar file" />
     <MESSAGE value="Change Manifest" />
     <MESSAGE value="Edit fatJar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit fatJar" />
+    <MESSAGE value="Add Gradle Wrapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Gradle Wrapper" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

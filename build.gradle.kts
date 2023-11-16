@@ -9,16 +9,12 @@ repositories {
     mavenCentral()
 }
 
-tasks.register<Jar>("fatJar") {
+tasks.jar {
     manifest {
-        attributes["Main-Class"] = "org.example.EconomistBot"
+        attributes(
+                "Main-Class" to "org.example.EconomistBot"
+        )
     }
-
-    // Setting a duplicate strategy
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-
-    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
-    with(tasks.named<Jar>("jar").get() as CopySpec)
 }
 
 
