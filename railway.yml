@@ -3,6 +3,9 @@
 # Specify the builder for your project (Java in this case)
 build:
   builder: NIXPACKS
+  env:
+    NIXPACKS_JDK_VERSION: "17"
+    NIXPACKS_GRADLE_VERSION: "8"
 
 # Define the deployment settings
 deploy:
