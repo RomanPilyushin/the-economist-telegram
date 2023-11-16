@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update railway.yml">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add config.properties">
+      <change afterPath="$PROJECT_DIR$/railway.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/railway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/railway.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/railway.yml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +122,7 @@
       <workItem from="1700144785653" duration="889000" />
       <workItem from="1700146111914" duration="647000" />
       <workItem from="1700146785204" duration="1681000" />
-      <workItem from="1700148656480" duration="1827000" />
+      <workItem from="1700148656480" duration="2648000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -315,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700149138883</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add config.properties">
+      <option name="closed" value="true" />
+      <created>1700150773618</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1700150773618</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +355,8 @@
     <MESSAGE value="Change to Groovy" />
     <MESSAGE value="Update Manifest" />
     <MESSAGE value="Update railway.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update railway.yml" />
+    <MESSAGE value="Add config.properties" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add config.properties" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
