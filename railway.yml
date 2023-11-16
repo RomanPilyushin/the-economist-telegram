@@ -3,6 +3,7 @@
 # Specify the builder for your project (Java in this case)
 build:
   builder: NIXPACKS
+  buildCommand: "./gradlew clean fatJar"
   env:
     NIXPACKS_JDK_VERSION: "17"
     NIXPACKS_GRADLE_VERSION: "8"
