@@ -13,19 +13,38 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.io.IOException;
+import java.time.Duration;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 
 public class EconomistBot extends TelegramLongPollingBot {
+    private Set<String> lastFetchedNews = new HashSet<>();
     private static final int MAX_MESSAGE_LENGTH = 4096; // Maximum length of a Telegram message
     private static final Logger LOGGER = Logger.getLogger(EconomistBot.class.getName());
     private static final Set<Long> subscribedUsers = new HashSet<>();
     private static final String BOT_TOKEN = "6530358402:AAG28dxK3SQCjlPIYayi-aysMNAI8oOZcyw";
     private static final String BOT_USERNAME = "https://t.me/Theworldinbrief_bot";
+
+    public EconomistBot() {
+        // Schedule the periodic news check every hour
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(2);
+        executorService.scheduleAtFixedRate(this::checkForNewsUpdates, 0, 1, TimeUnit.HOURS);
+
+        // Calculate initial delay for the 9 AM schedule
+        long initialDelay = Duration.between(LocalTime.now(), LocalTime.of(9, 0)).toMinutes();
+        if (initialDelay < 0) {
+            initialDelay += Duration.ofDays(1).toMinutes(); // Schedule for next day if time has passed
+        }
+        executorService.scheduleAtFixedRate(this::sendDailyNews, initialDelay, TimeUnit.DAYS.toMinutes(1), TimeUnit.MINUTES);
+    }
 
     public static void main(String[] args) {
         try {
@@ -160,6 +179,46 @@ public class EconomistBot extends TelegramLongPollingBot {
             }
         } catch (IOException e) {
             LOGGER.severe("Error sending news update: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void sendDailyNews() {
+        // Fetch and send daily news to all subscribed users at 9 AM
+        try {
+            String newsContent = WebContentDownloader.downloadContent();
+            for (Long chatId : subscribedUsers) {
+                sendLongMessage(chatId, newsContent);
+            }
+        } catch (IOException e) {
+            LOGGER.severe("Error sending daily news: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void checkForNewsUpdates() {
+        // Logic to check and send updates...
+        try {
+            String currentNewsContent = WebContentDownloader.downloadContent();
+            Set<String> currentNewsSet = new HashSet<>(extractNewsBlocks(currentNewsContent));
+
+            // Determine new or changed news
+            Set<String> newOrChangedNews = new HashSet<>(currentNewsSet);
+            newOrChangedNews.removeAll(lastFetchedNews);
+
+            if (!newOrChangedNews.isEmpty()) {
+                // Send only new or changed news to subscribed users
+                for (Long chatId : subscribedUsers) {
+                    for (String newsItem : newOrChangedNews) {
+                        sendLongMessage(chatId, newsItem);
+                    }
+                }
+            }
+
+            // Update the last fetched news
+            lastFetchedNews = currentNewsSet;
+        } catch (IOException e) {
+            LOGGER.severe("Error checking news updates: " + e.getMessage());
             e.printStackTrace();
         }
     }
