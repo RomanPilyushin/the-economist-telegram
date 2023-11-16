@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update railway.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/railway.json" beforeDir="false" afterPath="$PROJECT_DIR$/railway.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +120,7 @@
       <workItem from="1700146111914" duration="647000" />
       <workItem from="1700146785204" duration="1681000" />
       <workItem from="1700148656480" duration="6448000" />
-      <workItem from="1700155175170" duration="4460000" />
+      <workItem from="1700155175170" duration="5324000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -411,7 +410,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700163122656</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Update railway.json">
+      <option name="closed" value="true" />
+      <created>1700163387321</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1700163387321</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

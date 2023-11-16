@@ -70,17 +70,19 @@ public class EconomistBot extends TelegramLongPollingBot {
             botsApi.registerBot(new EconomistBot());
 
             // Start the Jetty server for health checks
-            startJettyServer(JETTY_SERVER_PORT);
-        } catch (TelegramApiException e) {
-            LOGGER.severe("Error registering bot: " + e.getMessage());
-            e.printStackTrace();
+            startJettyServer();
         } catch (Exception e) {
-            LOGGER.severe("Error starting Jetty server: " + e.getMessage());
+            LOGGER.severe("Error: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
-    private static void startJettyServer(int port) throws Exception {
+
+    private static void startJettyServer() throws Exception {
+        // Use the PORT environment variable, default to 8080 if not set
+        String portEnv = System.getenv("PORT");
+        int port = portEnv != null ? Integer.parseInt(portEnv) : 8080;
+
         Server server = new Server(port);
         ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
         context.setContextPath("/");
@@ -92,6 +94,7 @@ public class EconomistBot extends TelegramLongPollingBot {
         server.start();
         LOGGER.info("Jetty server started on port " + port);
     }
+
 
     @Override
     public String getBotUsername() {
