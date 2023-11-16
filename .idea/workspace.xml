@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Change Markdown to HTML">
-      <change afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Send each news as separate massage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +84,8 @@
       <option name="presentableId" value="Default" />
       <updated>1700049225362</updated>
       <workItem from="1700049226373" duration="17957000" />
-      <workItem from="1700081195369" duration="5072000" />
+      <workItem from="1700081195369" duration="5389000" />
+      <workItem from="1700109714908" duration="3530000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -120,7 +119,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700074791333</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Send each news as separate massage">
+      <option name="closed" value="true" />
+      <created>1700086634332</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1700086634332</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +139,7 @@
     <MESSAGE value="Add Logger" />
     <MESSAGE value="Change Telegram's API to TelegramBots" />
     <MESSAGE value="Change Markdown to HTML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change Markdown to HTML" />
+    <MESSAGE value="Send each news as separate massage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Send each news as separate massage" />
   </component>
 </project>

@@ -22,7 +22,6 @@ import java.util.logging.Logger;
 
 public class EconomistBot extends TelegramLongPollingBot {
     private static final int MAX_MESSAGE_LENGTH = 4096; // Maximum length of a Telegram message
-
     private static final Logger LOGGER = Logger.getLogger(EconomistBot.class.getName());
     private static final Set<Long> subscribedUsers = new HashSet<>();
     private static final String BOT_TOKEN = "6530358402:AAG28dxK3SQCjlPIYayi-aysMNAI8oOZcyw";
@@ -80,27 +79,6 @@ public class EconomistBot extends TelegramLongPollingBot {
         }
     }
 
-    private String prepareHtmlContent(String htmlContent) {
-        // Parse the HTML content
-        Document document = Jsoup.parse(htmlContent);
-
-        // Remove all script and style elements
-        document.select("script, style").forEach(Element::remove);
-
-        // Extract plain text from the document
-        String plainText = document.text();
-
-        // Insert newline characters to format the text
-        // This is a basic example and may need to be adjusted based on actual text patterns
-        String formattedText = plainText.replaceAll("(\\. )", ".\n\n")
-                .replaceAll("(\\? )", "?\n\n")
-                .replaceAll("(\\! )", "!\n\n");
-
-        LOGGER.info("Formatted Plain Text: " + formattedText); // Log the formatted text
-        return formattedText;
-    }
-
-
 
     /**
      * Sends a long message by splitting it into smaller parts if necessary.
@@ -135,31 +113,36 @@ public class EconomistBot extends TelegramLongPollingBot {
     private List<String> extractNewsBlocks(String htmlContent) {
         List<String> newsBlocks = new ArrayList<>();
         Document document = Jsoup.parse(htmlContent);
+        Set<String> titledArticleParagraphs = new HashSet<>();
 
-        Elements potentialNewsElements = document.select("p, div._article.ds-layout-grid");
-
-        for (Element element : potentialNewsElements) {
+        // First, process titled news articles
+        Elements titledNewsArticles = document.select("div._article.ds-layout-grid");
+        for (Element article : titledNewsArticles) {
             StringBuilder newsText = new StringBuilder();
+            String headline = article.select("h3._headline").text().trim();
+            if (!headline.isEmpty()) {
+                newsText.append(headline).append("\n\n");
+            }
 
-            if (element.tagName().equals("div") && element.hasClass("_article ds-layout-grid")) {
-                // Extract the headline if available
-                String headline = element.select("h3._headline").text();
-                if (!headline.isEmpty()) {
-                    newsText.append(headline).append("\n\n");
-                }
-
-                // Add the text from each paragraph within the div
-                Elements paragraphs = element.select("p");
-                for (Element paragraph : paragraphs) {
-                    newsText.append(paragraph.text()).append("\n\n");
-                }
-            } else if (element.tagName().equals("p")) {
-                // If it's a standalone <p> tag, add its text
-                newsText.append(element.text());
+            Elements paragraphs = article.select("p");
+            for (Element paragraph : paragraphs) {
+                String paragraphText = paragraph.text().trim();
+                newsText.append(paragraphText).append("\n\n");
+                titledArticleParagraphs.add(paragraphText);  // Keep track of paragraphs in titled articles
             }
 
             if (!newsText.toString().trim().isEmpty()) {
                 newsBlocks.add(newsText.toString().trim());
+            }
+        }
+
+        // Then, process standalone <p> tags excluding those in titled articles and the specific unwanted paragraph
+        Elements standaloneParagraphs = document.select("p:not(div._article.ds-layout-grid > p)");
+        for (Element paragraph : standaloneParagraphs) {
+            String paragraphText = paragraph.text().trim();
+            if (!paragraphText.isEmpty() && !titledArticleParagraphs.contains(paragraphText) &&
+                    !paragraphText.equals("Catch up quickly on the global stories that matter")) {
+                newsBlocks.add(paragraphText);
             }
         }
 
@@ -170,9 +153,8 @@ public class EconomistBot extends TelegramLongPollingBot {
         try {
             LOGGER.info("Sending news update to Chat ID: " + chatId);
             String htmlContent = WebContentDownloader.downloadContent();
-            LOGGER.info("Downloaded Content: " + htmlContent);
-
             List<String> newsBlocks = extractNewsBlocks(htmlContent);
+
             for (String newsBlock : newsBlocks) {
                 sendLongMessage(chatId, newsBlock);
             }
