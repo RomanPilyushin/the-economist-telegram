@@ -5,7 +5,7 @@ build:
   builder: NIXPACKS
   buildCommand: "./gradlew clean fatJar"
   env:
-    NIXPACKS_JDK_VERSION: "17"
+    NIXPACKS_JDK_VERSION: "19"
     NIXPACKS_GRADLE_VERSION: "8"
 
 # Define the deployment settings

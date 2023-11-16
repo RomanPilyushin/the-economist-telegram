@@ -12,12 +12,12 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.Duration;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -29,20 +29,40 @@ public class EconomistBot extends TelegramLongPollingBot {
     private static final int MAX_MESSAGE_LENGTH = 4096; // Maximum length of a Telegram message
     private static final Logger LOGGER = Logger.getLogger(EconomistBot.class.getName());
     private static final Set<Long> subscribedUsers = new HashSet<>();
-    private static final String BOT_TOKEN = "6530358402:AAG28dxK3SQCjlPIYayi-aysMNAI8oOZcyw";
-    private static final String BOT_USERNAME = "https://t.me/Theworldinbrief_bot";
+    private static String BOT_TOKEN;
+    private static String BOT_USERNAME;
+
+    static {
+        try {
+            // Load properties
+            Properties properties = new Properties();
+            InputStream inputStream = EconomistBot.class.getClassLoader().getResourceAsStream("config.properties");
+            if (inputStream != null) {
+                properties.load(inputStream);
+                BOT_TOKEN = properties.getProperty("bot.token");
+                BOT_USERNAME = properties.getProperty("bot.username");
+            } else {
+                LOGGER.severe("config.properties file not found");
+                throw new IllegalStateException("config.properties file not found");
+            }
+        } catch (Exception e) {
+            LOGGER.severe("Error loading config.properties: " + e.getMessage());
+            throw new IllegalStateException("Error loading config.properties", e);
+        }
+    }
 
     public EconomistBot() {
-        // Schedule the periodic news check every hour
-        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(2);
-        executorService.scheduleAtFixedRate(this::checkForNewsUpdates, 0, 1, TimeUnit.HOURS);
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
 
-        // Calculate initial delay for the 9 AM schedule
-        long initialDelay = Duration.between(LocalTime.now(), LocalTime.of(9, 0)).toMinutes();
-        if (initialDelay < 0) {
-            initialDelay += Duration.ofDays(1).toMinutes(); // Schedule for next day if time has passed
-        }
-        executorService.scheduleAtFixedRate(this::sendDailyNews, initialDelay, TimeUnit.DAYS.toMinutes(1), TimeUnit.MINUTES);
+        // Adjust to Kiev Time Zone (EET, UTC+2/UTC+3)
+        ZoneId kievZoneId = ZoneId.of("Europe/Kiev");
+        ZonedDateTime nowInKiev = ZonedDateTime.now(kievZoneId);
+        ZonedDateTime nextRun = nowInKiev.withHour(9).withMinute(0).withSecond(0);
+        if (nowInKiev.compareTo(nextRun) > 0)
+            nextRun = nextRun.plusDays(1);
+
+        Duration initialDelay = Duration.between(nowInKiev, nextRun);
+        executorService.scheduleAtFixedRate(this::sendDailyNews, initialDelay.toMinutes(), TimeUnit.DAYS.toMinutes(1), TimeUnit.MINUTES);
     }
 
     public static void main(String[] args) {

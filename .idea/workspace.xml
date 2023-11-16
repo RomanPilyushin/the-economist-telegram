@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Manifest">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update railway.yml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/railway.yml" beforeDir="false" afterPath="$PROJECT_DIR$/railway.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +121,7 @@
       <workItem from="1700144785653" duration="889000" />
       <workItem from="1700146111914" duration="647000" />
       <workItem from="1700146785204" duration="1681000" />
-      <workItem from="1700148656480" duration="402000" />
+      <workItem from="1700148656480" duration="1827000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -308,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700147131651</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Update railway.yml">
+      <option name="closed" value="true" />
+      <created>1700149138883</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1700149138883</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,10 +343,10 @@
     <MESSAGE value="Edit fatJar" />
     <MESSAGE value="Add Gradle Wrapper" />
     <MESSAGE value="Add Tasks Jar" />
-    <MESSAGE value="Update railway.yml" />
     <MESSAGE value="Change to Groovy" />
     <MESSAGE value="Update Manifest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Manifest" />
+    <MESSAGE value="Update railway.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update railway.yml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
