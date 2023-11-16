@@ -15,6 +15,19 @@ tasks.jar {
     }
 }
 
+tasks.register<Jar>("fatJar") {
+    manifest {
+        attributes["Main-Class"] = "org.example.EconomistBot"
+    }
+
+    // Handle duplicates
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+    with(tasks.jar.get() as CopySpec)
+}
+
+
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")

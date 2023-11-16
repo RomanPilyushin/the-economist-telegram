@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Provided only one main class in the project">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add tasks jar to Gradle">
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,7 @@
       <updated>1700049225362</updated>
       <workItem from="1700049226373" duration="17957000" />
       <workItem from="1700081195369" duration="5389000" />
-      <workItem from="1700109714908" duration="6443000" />
+      <workItem from="1700109714908" duration="6649000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -150,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700116305578</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add tasks jar to Gradle">
+      <option name="closed" value="true" />
+      <created>1700116742902</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1700116742902</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +174,7 @@
     <MESSAGE value="Send news correctly to the user" />
     <MESSAGE value="Provide check news every hour and send all news at 9am" />
     <MESSAGE value="Provided only one main class in the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Provided only one main class in the project" />
+    <MESSAGE value="Add tasks jar to Gradle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tasks jar to Gradle" />
   </component>
 </project>
