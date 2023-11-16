@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Deploy fatjar">
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Delete Dockerfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +111,7 @@
       <workItem from="1700049226373" duration="17957000" />
       <workItem from="1700081195369" duration="5389000" />
       <workItem from="1700109714908" duration="8572000" />
-      <workItem from="1700119122101" duration="47000" />
+      <workItem from="1700119122101" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -194,7 +193,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700117198130</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700119212068</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1700119212068</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Delete Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700119343638</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1700119343638</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,6 +227,8 @@
     <MESSAGE value="Provided only one main class in the project" />
     <MESSAGE value="Add tasks jar to Gradle" />
     <MESSAGE value="Deploy fatjar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deploy fatjar" />
+    <MESSAGE value="Add Dockerfile" />
+    <MESSAGE value="Delete Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete Dockerfile" />
   </component>
 </project>
