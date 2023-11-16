@@ -135,7 +135,6 @@ public class EconomistBot extends TelegramLongPollingBot {
         }
     }
 
-
     /**
      * Sends a long message by splitting it into smaller parts if necessary.
      * @param chatId The chat ID to send the message to.
@@ -246,5 +245,4 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
 }

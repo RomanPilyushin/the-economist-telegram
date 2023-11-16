@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add Jetty">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
-    </list>
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Incorporated Jetty to main class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +118,7 @@
       <workItem from="1700146111914" duration="647000" />
       <workItem from="1700146785204" duration="1681000" />
       <workItem from="1700148656480" duration="6448000" />
-      <workItem from="1700155175170" duration="2576000" />
+      <workItem from="1700155175170" duration="3091000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -387,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700159648593</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Incorporated Jetty to main class">
+      <option name="closed" value="true" />
+      <created>1700161448841</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1700161448841</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +411,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Change Markdown to HTML" />
     <MESSAGE value="Send each news as separate massage" />
     <MESSAGE value="Send news correctly to the user" />
     <MESSAGE value="Provide check news every hour and send all news at 9am" />
@@ -431,7 +435,8 @@
     <MESSAGE value="Add Dockerfile" />
     <MESSAGE value="Update Dockerfile" />
     <MESSAGE value="Add Jetty" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Jetty" />
+    <MESSAGE value="Incorporated Jetty to main class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Incorporated Jetty to main class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
