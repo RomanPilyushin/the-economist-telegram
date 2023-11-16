@@ -3,7 +3,6 @@
   "build": {
     "builder": "nixpacks",
     "buildCommand": "./gradlew clean fatJar",
-    "watchPatterns": ["src/**"]
   },
   "deploy": {
     "startCommand": "java -jar build/libs/ThEconomistDownloader-1.0-SNAPSHOT.jar",
