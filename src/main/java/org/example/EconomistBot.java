@@ -14,7 +14,6 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import java.io.IOException;
 import java.io.InputStream;
 import java.time.Duration;
-import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -22,15 +21,20 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 
 
 public class EconomistBot extends TelegramLongPollingBot {
-    private Set<String> lastFetchedNews = new HashSet<>();
     private static final int MAX_MESSAGE_LENGTH = 4096; // Maximum length of a Telegram message
     private static final Logger LOGGER = Logger.getLogger(EconomistBot.class.getName());
     private static final Set<Long> subscribedUsers = new HashSet<>();
     private static String BOT_TOKEN;
     private static String BOT_USERNAME;
+
+    // Jetty server port
+    private static final int JETTY_SERVER_PORT = 8080; // Choose an appropriate port
 
     static {
         loadConfig();
@@ -61,12 +65,32 @@ public class EconomistBot extends TelegramLongPollingBot {
 
     public static void main(String[] args) {
         try {
+            // Start the Telegram bot
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
             botsApi.registerBot(new EconomistBot());
+
+            // Start the Jetty server for health checks
+            startJettyServer(JETTY_SERVER_PORT);
         } catch (TelegramApiException e) {
             LOGGER.severe("Error registering bot: " + e.getMessage());
             e.printStackTrace();
+        } catch (Exception e) {
+            LOGGER.severe("Error starting Jetty server: " + e.getMessage());
+            e.printStackTrace();
         }
+    }
+
+    private static void startJettyServer(int port) throws Exception {
+        Server server = new Server(port);
+        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        context.setContextPath("/");
+        server.setHandler(context);
+
+        // Add servlet to handle health checks
+        context.addServlet(new ServletHolder(new HealthCheckServlet()), "/health");
+
+        server.start();
+        LOGGER.info("Jetty server started on port " + port);
     }
 
     @Override

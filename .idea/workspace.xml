@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Dockerfile">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/HealthCheckServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/HealthCheckServlet.java" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add Jetty">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -125,7 +121,7 @@
       <workItem from="1700146111914" duration="647000" />
       <workItem from="1700146785204" duration="1681000" />
       <workItem from="1700148656480" duration="6448000" />
-      <workItem from="1700155175170" duration="1901000" />
+      <workItem from="1700155175170" duration="2576000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -383,7 +379,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700153685149</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Add Jetty">
+      <option name="closed" value="true" />
+      <created>1700159648593</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1700159648593</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,7 +406,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Change Telegram's API to TelegramBots" />
     <MESSAGE value="Change Markdown to HTML" />
     <MESSAGE value="Send each news as separate massage" />
     <MESSAGE value="Send news correctly to the user" />
@@ -427,7 +430,8 @@
     <MESSAGE value="Update railway.json" />
     <MESSAGE value="Add Dockerfile" />
     <MESSAGE value="Update Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Dockerfile" />
+    <MESSAGE value="Add Jetty" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Jetty" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
