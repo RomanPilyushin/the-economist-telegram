@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add railway.json">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update railway.json">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +120,7 @@
       <workItem from="1700144785653" duration="889000" />
       <workItem from="1700146111914" duration="647000" />
       <workItem from="1700146785204" duration="1681000" />
-      <workItem from="1700148656480" duration="3724000" />
+      <workItem from="1700148656480" duration="4388000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -329,7 +330,31 @@
       <option name="project" value="LOCAL" />
       <updated>1700151367942</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update railway.json">
+      <option name="closed" value="true" />
+      <created>1700152670929</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1700152670929</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Update railway.json">
+      <option name="closed" value="true" />
+      <created>1700152707386</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1700152707386</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Update railway.json">
+      <option name="closed" value="true" />
+      <created>1700152719440</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1700152719440</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -348,7 +373,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Set up the bot" />
     <MESSAGE value="Add Logger" />
     <MESSAGE value="Change Telegram's API to TelegramBots" />
     <MESSAGE value="Change Markdown to HTML" />
@@ -373,7 +397,8 @@
     <MESSAGE value="Update railway.yml" />
     <MESSAGE value="Add config.properties" />
     <MESSAGE value="Add railway.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add railway.json" />
+    <MESSAGE value="Update railway.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update railway.json" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
