@@ -9,11 +9,15 @@ repositories {
     mavenCentral()
 }
 
-tasks.jar {
+tasks.register<Jar>("fatJar") {
     manifest {
-        attributes("Main-Class" to "org.example.EconomistBot")
+        attributes["Main-Class"] = "org.example.EconomistBot"
     }
+
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+    with(tasks.getByName<Jar>("jar") as CopySpec)
 }
+
 
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
