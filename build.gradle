@@ -33,6 +33,13 @@ dependencies {
     implementation 'org.telegram:telegrambots:6.8.0'
     // https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark
     implementation 'com.vladsch.flexmark:flexmark-all:0.62.2'
+
+    // Jetty core server and servlet API
+    implementation 'org.eclipse.jetty:jetty-server:9.4.31.v20200723'
+    implementation 'org.eclipse.jetty:jetty-servlet:9.4.31.v20200723'
+
+    // Servlet API
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
 }
 
 tasks.test {

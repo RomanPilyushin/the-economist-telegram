@@ -33,6 +33,10 @@ public class EconomistBot extends TelegramLongPollingBot {
     private static String BOT_USERNAME;
 
     static {
+        loadConfig();
+    }
+
+    private static void loadConfig() {
         try {
             // Load properties
             Properties properties = new Properties();
@@ -52,17 +56,7 @@ public class EconomistBot extends TelegramLongPollingBot {
     }
 
     public EconomistBot() {
-        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
-
-        // Adjust to Kiev Time Zone (EET, UTC+2/UTC+3)
-        ZoneId kievZoneId = ZoneId.of("Europe/Kiev");
-        ZonedDateTime nowInKiev = ZonedDateTime.now(kievZoneId);
-        ZonedDateTime nextRun = nowInKiev.withHour(9).withMinute(0).withSecond(0);
-        if (nowInKiev.compareTo(nextRun) > 0)
-            nextRun = nextRun.plusDays(1);
-
-        Duration initialDelay = Duration.between(nowInKiev, nextRun);
-        executorService.scheduleAtFixedRate(this::sendDailyNews, initialDelay.toMinutes(), TimeUnit.DAYS.toMinutes(1), TimeUnit.MINUTES);
+        scheduleDailyNews();
     }
 
     public static void main(String[] args) {
@@ -129,6 +123,20 @@ public class EconomistBot extends TelegramLongPollingBot {
             int end = Math.min(start + MAX_MESSAGE_LENGTH, length);
             sendMessage(chatId, longMessage.substring(start, end));
         }
+    }
+
+    private void scheduleDailyNews() {
+        ScheduledExecutorService executorService = Executors.newScheduledThreadPool(1);
+
+        // Adjust to Kiev Time Zone (EET, UTC+2/UTC+3)
+        ZoneId kievZoneId = ZoneId.of("Europe/Kiev");
+        ZonedDateTime nowInKiev = ZonedDateTime.now(kievZoneId);
+        ZonedDateTime nextRun = nowInKiev.withHour(9).withMinute(0).withSecond(0);
+        if (nowInKiev.compareTo(nextRun) > 0)
+            nextRun = nextRun.plusDays(1);
+
+        Duration initialDelay = Duration.between(nowInKiev, nextRun);
+        executorService.scheduleAtFixedRate(this::sendDailyNews, initialDelay.toMinutes(), TimeUnit.DAYS.toMinutes(1), TimeUnit.MINUTES);
     }
 
     /**
@@ -211,33 +219,6 @@ public class EconomistBot extends TelegramLongPollingBot {
             }
         } catch (IOException e) {
             LOGGER.severe("Error sending daily news: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-    private void checkForNewsUpdates() {
-        // Logic to check and send updates...
-        try {
-            String currentNewsContent = WebContentDownloader.downloadContent();
-            Set<String> currentNewsSet = new HashSet<>(extractNewsBlocks(currentNewsContent));
-
-            // Determine new or changed news
-            Set<String> newOrChangedNews = new HashSet<>(currentNewsSet);
-            newOrChangedNews.removeAll(lastFetchedNews);
-
-            if (!newOrChangedNews.isEmpty()) {
-                // Send only new or changed news to subscribed users
-                for (Long chatId : subscribedUsers) {
-                    for (String newsItem : newOrChangedNews) {
-                        sendLongMessage(chatId, newsItem);
-                    }
-                }
-            }
-
-            // Update the last fetched news
-            lastFetchedNews = currentNewsSet;
-        } catch (IOException e) {
-            LOGGER.severe("Error checking news updates: " + e.getMessage());
             e.printStackTrace();
         }
     }
