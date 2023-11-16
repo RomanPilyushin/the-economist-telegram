@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Provide check news every hour and send all news at 9am">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Provided only one main class in the project">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/WebContentDownloader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/WebContentDownloader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +84,7 @@
       <updated>1700049225362</updated>
       <workItem from="1700049226373" duration="17957000" />
       <workItem from="1700081195369" duration="5389000" />
-      <workItem from="1700109714908" duration="5980000" />
+      <workItem from="1700109714908" duration="6443000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -143,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700115021069</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Provided only one main class in the project">
+      <option name="closed" value="true" />
+      <created>1700116305578</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1700116305578</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +165,7 @@
     <MESSAGE value="Send each news as separate massage" />
     <MESSAGE value="Send news correctly to the user" />
     <MESSAGE value="Provide check news every hour and send all news at 9am" />
-    <option name="LAST_COMMIT_MESSAGE" value="Provide check news every hour and send all news at 9am" />
+    <MESSAGE value="Provided only one main class in the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Provided only one main class in the project" />
   </component>
 </project>

@@ -9,6 +9,12 @@ repositories {
     mavenCentral()
 }
 
+tasks.jar {
+    manifest {
+        attributes("Main-Class" to "org.example.EconomistBot")
+    }
+}
+
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
@@ -17,9 +23,6 @@ dependencies {
     implementation ("org.telegram:telegrambots:6.8.0")
     // https://mvnrepository.com/artifact/com.vladsch.flexmark/flexmark
     implementation ("com.vladsch.flexmark:flexmark-all:0.62.2")
-
-
-
 
 }
 
