@@ -1,5 +1,5 @@
 plugins {
-    id("java")
+    java
 }
 
 group = "org.example"
@@ -9,23 +9,17 @@ repositories {
     mavenCentral()
 }
 
-tasks.jar {
-    manifest {
-        attributes(
-                "Main-Class" to "org.example.EconomistBot"
-        )
-    }
-}
-
-
 tasks.register<Jar>("fatJar") {
     manifest {
         attributes["Main-Class"] = "org.example.EconomistBot"
     }
 
-    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
-    with(tasks.getByName<Jar>("jar") as CopySpec)
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) }) {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    }
+    with(tasks.named<Jar>("jar").get() as CopySpec)
 }
+
 
 
 dependencies {

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Delete fatjar instruction">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add manifest to jar file">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
@@ -74,7 +74,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.20214844&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -116,7 +116,8 @@
       <workItem from="1700119122101" duration="1666000" />
       <workItem from="1700121049159" duration="161000" />
       <workItem from="1700139680769" duration="7000" />
-      <workItem from="1700139877881" duration="295000" />
+      <workItem from="1700139877881" duration="1694000" />
+      <workItem from="1700141590252" duration="39000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -230,7 +231,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700120485789</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Change JDK from 21 to 19">
+      <option name="closed" value="true" />
+      <created>1700140199857</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700140199857</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add manifest to jar file">
+      <option name="closed" value="true" />
+      <created>1700140517211</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700140517211</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +269,8 @@
     <MESSAGE value="Delete Dockerfile" />
     <MESSAGE value="Add railway.yml" />
     <MESSAGE value="Delete fatjar instruction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete fatjar instruction" />
+    <MESSAGE value="Change JDK from 21 to 19" />
+    <MESSAGE value="Add manifest to jar file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add manifest to jar file" />
   </component>
 </project>
