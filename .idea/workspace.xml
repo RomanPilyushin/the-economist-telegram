@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Provided Healthcheck">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update railway.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/railway.json" beforeDir="false" afterPath="$PROJECT_DIR$/railway.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +121,7 @@
       <workItem from="1700146111914" duration="647000" />
       <workItem from="1700146785204" duration="1681000" />
       <workItem from="1700148656480" duration="6448000" />
-      <workItem from="1700155175170" duration="4141000" />
+      <workItem from="1700155175170" duration="4460000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -402,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700161965659</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Update railway.json">
+      <option name="closed" value="true" />
+      <created>1700163122656</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1700163122656</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +430,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Send news correctly to the user" />
     <MESSAGE value="Provide check news every hour and send all news at 9am" />
     <MESSAGE value="Provided only one main class in the project" />
     <MESSAGE value="Add tasks jar to Gradle" />
@@ -440,13 +448,14 @@
     <MESSAGE value="Update railway.yml" />
     <MESSAGE value="Add config.properties" />
     <MESSAGE value="Add railway.json" />
-    <MESSAGE value="Update railway.json" />
     <MESSAGE value="Add Dockerfile" />
     <MESSAGE value="Update Dockerfile" />
     <MESSAGE value="Add Jetty" />
     <MESSAGE value="Incorporated Jetty to main class" />
     <MESSAGE value="Provided Healthcheck" />
-    <option name="LAST_COMMIT_MESSAGE" value="Provided Healthcheck" />
+    <MESSAGE value="Uptade railway.json" />
+    <MESSAGE value="Update railway.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update railway.json" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
