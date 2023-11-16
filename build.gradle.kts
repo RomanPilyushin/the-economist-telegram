@@ -9,6 +9,15 @@ repositories {
     mavenCentral()
 }
 
+tasks.jar {
+    manifest {
+        attributes(
+                "Main-Class" to "org.example.EconomistBot"
+        )
+    }
+}
+
+
 tasks.register<Jar>("fatJar") {
     manifest {
         attributes["Main-Class"] = "org.example.EconomistBot"
