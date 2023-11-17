@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit extractNewsBlocks in EconomistBot.java">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update sendDailyNews in EconomistBot.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +125,7 @@
       <workItem from="1700155175170" duration="6214000" />
       <workItem from="1700204763869" duration="434000" />
       <workItem from="1700205283833" duration="207000" />
-      <workItem from="1700205654930" duration="1160000" />
+      <workItem from="1700205654930" duration="3447000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -454,7 +455,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700206131176</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Change extractNewsBlocks">
+      <option name="closed" value="true" />
+      <created>1700206875727</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1700206875727</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Edit EconomistBot.java">
+      <option name="closed" value="true" />
+      <created>1700207067413</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1700207067413</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,9 +490,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Delete Dockerfile" />
-    <MESSAGE value="Add railway.yml" />
-    <MESSAGE value="Delete fatjar instruction" />
     <MESSAGE value="Change JDK from 21 to 19" />
     <MESSAGE value="Add manifest to jar file" />
     <MESSAGE value="Change Manifest" />
@@ -498,7 +512,10 @@
     <MESSAGE value="Updated railway.json" />
     <MESSAGE value="Updated railway.json (add restartPolicyMaxRetries)" />
     <MESSAGE value="Edit extractNewsBlocks in EconomistBot.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit extractNewsBlocks in EconomistBot.java" />
+    <MESSAGE value="Change extractNewsBlocks" />
+    <MESSAGE value="Edit EconomistBot.java" />
+    <MESSAGE value="Update sendDailyNews in EconomistBot.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update sendDailyNews in EconomistBot.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

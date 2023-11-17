@@ -181,7 +181,6 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
     /*
     private List<String> extractNewsBlocks(String htmlContent) {
         List<String> newsBlocks = new ArrayList<>();
@@ -255,7 +254,7 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
+    /*
     private void sendDailyNews() {
         // Fetch and send daily news to all subscribed users at 9 AM
         try {
@@ -268,4 +267,23 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
+
+     */
+
+    private void sendDailyNews() {
+        try {
+            String htmlContent = WebContentDownloader.downloadContent();
+            List<String> newsBlocks = extractNewsBlocks(htmlContent);
+
+            for (Long chatId : subscribedUsers) {
+                for (String newsBlock : newsBlocks) {
+                    sendLongMessage(chatId, newsBlock);
+                }
+            }
+        } catch (IOException e) {
+            LOGGER.severe("Error sending daily news: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }
