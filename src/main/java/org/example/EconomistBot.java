@@ -188,6 +188,7 @@ public class EconomistBot extends TelegramLongPollingBot {
         Set<String> titledArticleParagraphs = new HashSet<>();
 
         // First, process titled news articles
+        /*
         Elements titledNewsArticles = document.select("div._article.ds-layout-grid");
         for (Element article : titledNewsArticles) {
             StringBuilder newsText = new StringBuilder();
@@ -207,6 +208,7 @@ public class EconomistBot extends TelegramLongPollingBot {
                 newsBlocks.add(newsText.toString().trim());
             }
         }
+        */
 
         // Then, process standalone <p> tags excluding those in titled articles and the specific unwanted paragraph
         Elements standaloneParagraphs = document.select("p:not(div._article.ds-layout-grid > p)");
