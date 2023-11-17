@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update port and address">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Updated railway.json" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +119,7 @@
       <workItem from="1700146785204" duration="1681000" />
       <workItem from="1700148656480" duration="6448000" />
       <workItem from="1700155175170" duration="6214000" />
-      <workItem from="1700204763869" duration="312000" />
+      <workItem from="1700204763869" duration="434000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -427,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700164281161</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Updated railway.json">
+      <option name="closed" value="true" />
+      <created>1700205176638</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1700205176638</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -446,7 +452,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Provided only one main class in the project" />
     <MESSAGE value="Add tasks jar to Gradle" />
     <MESSAGE value="Deploy fatjar" />
     <MESSAGE value="Delete Dockerfile" />
@@ -471,7 +476,8 @@
     <MESSAGE value="Uptade railway.json" />
     <MESSAGE value="Update railway.json" />
     <MESSAGE value="Update port and address" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update port and address" />
+    <MESSAGE value="Updated railway.json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated railway.json" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

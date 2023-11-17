@@ -11,6 +11,7 @@
     "healthcheckPath": "/health",
     "sleepApplication": false,
     "restartPolicyType": "ON_FAILURE",
-    "healthcheckTimeout": 100
+    "healthcheckTimeout": 100,
+    "restartPolicyMaxRetries": 1000
   }
 }
