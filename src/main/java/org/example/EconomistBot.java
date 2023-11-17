@@ -181,14 +181,14 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
+    /*
     private List<String> extractNewsBlocks(String htmlContent) {
         List<String> newsBlocks = new ArrayList<>();
         Document document = Jsoup.parse(htmlContent);
         Set<String> titledArticleParagraphs = new HashSet<>();
 
         // First, process titled news articles
-        /*
+
         Elements titledNewsArticles = document.select("div._article.ds-layout-grid");
         for (Element article : titledNewsArticles) {
             StringBuilder newsText = new StringBuilder();
@@ -208,7 +208,6 @@ public class EconomistBot extends TelegramLongPollingBot {
                 newsBlocks.add(newsText.toString().trim());
             }
         }
-        */
 
         // Then, process standalone <p> tags excluding those in titled articles and the specific unwanted paragraph
         Elements standaloneParagraphs = document.select("p:not(div._article.ds-layout-grid > p)");
@@ -216,6 +215,24 @@ public class EconomistBot extends TelegramLongPollingBot {
             String paragraphText = paragraph.text().trim();
             if (!paragraphText.isEmpty() && !titledArticleParagraphs.contains(paragraphText) &&
                     !paragraphText.equals("Catch up quickly on the global stories that matter")) {
+                newsBlocks.add(paragraphText);
+            }
+        }
+
+        return newsBlocks;
+    }
+    */
+
+    private List<String> extractNewsBlocks(String htmlContent) {
+        List<String> newsBlocks = new ArrayList<>();
+        Document document = Jsoup.parse(htmlContent);
+
+        // Select paragraphs that are direct children of div with class '_gobbet'
+        Elements gobbetNewsParagraphs = document.select("div._gobbet > div > p");
+
+        for (Element paragraph : gobbetNewsParagraphs) {
+            String paragraphText = paragraph.text().trim();
+            if (!paragraphText.isEmpty()) {
                 newsBlocks.add(paragraphText);
             }
         }
