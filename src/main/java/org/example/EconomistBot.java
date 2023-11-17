@@ -181,6 +181,7 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
+
     /*
     private List<String> extractNewsBlocks(String htmlContent) {
         List<String> newsBlocks = new ArrayList<>();
