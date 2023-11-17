@@ -10,7 +10,7 @@
     "startCommand": "java -jar build/libs/ThEconomistDownloader-1.0-SNAPSHOT.jar",
     "healthcheckPath": "/health",
     "sleepApplication": false,
-    "restartPolicyType": "NEVER",
+    "restartPolicyType": "ON_FAILURE",
     "healthcheckTimeout": 100
   }
 }
