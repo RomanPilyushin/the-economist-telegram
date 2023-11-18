@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit time of the trigger">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/identifier.sqlite" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/DatabaseUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/subscribed_users.db" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add database">
+      <change afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +156,7 @@
       <workItem from="1700305989682" duration="923000" />
       <workItem from="1700310155348" duration="3655000" />
       <workItem from="1700313826755" duration="29000" />
-      <workItem from="1700313970413" duration="4530000" />
+      <workItem from="1700313970413" duration="5626000" />
     </task>
     <task id="LOCAL-00001" summary="Set up the bot">
       <option name="closed" value="true" />
@@ -533,7 +526,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700314430284</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Add database">
+      <option name="closed" value="true" />
+      <created>1700318967286</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1700318967286</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,7 +553,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Change Manifest" />
     <MESSAGE value="Edit fatJar" />
     <MESSAGE value="Add Gradle Wrapper" />
     <MESSAGE value="Add Tasks Jar" />
@@ -577,7 +577,8 @@
     <MESSAGE value="Update sendDailyNews in EconomistBot.java" />
     <MESSAGE value="Add class DownloadSmallNews.java and save massages formatting" />
     <MESSAGE value="Edit time of the trigger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit time of the trigger" />
+    <MESSAGE value="Add database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add database" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
