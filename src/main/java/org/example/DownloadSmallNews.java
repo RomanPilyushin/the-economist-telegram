@@ -2,20 +2,22 @@ package org.example;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.logging.Logger;
 
-public class WebContentDownloader {
-    private static final Logger LOGGER = Logger.getLogger(WebContentDownloader.class.getName());
+public class DownloadSmallNews {
+    private static final Logger LOGGER = Logger.getLogger(DownloadSmallNews.class.getName());
 
     public static void main(String[] args) {
         try {
             LOGGER.info("Starting WebContentDownloader main method...");
             String content = downloadContent();
-            if (content != null) {
+            if (content != null && !content.isEmpty()) {
                 LOGGER.info("Content downloaded successfully.");
                 saveToFile(content, "extractedHtmlContent.html");
             } else {
@@ -32,38 +34,22 @@ public class WebContentDownloader {
         Document document = Jsoup.connect(url).header("Content-Type", "text/html; charset=utf-8").get();
         LOGGER.info("Connected to URL: " + url);
 
-        String startMarker = "<section class=\"css-1w4nt3t e1mdtgh40\">";
-        String endMarker = "<h3 class=\"_headline\">Daily quiz</h3>";
+        // Select all elements with the class "_gobbet"
+        Elements gobbetElements = document.select("div._gobbet");
+        StringBuilder extractedContent = new StringBuilder();
 
-        String extractedContent = extractContentBetweenMarkers(document, startMarker, endMarker);
-
-        if (extractedContent == null) {
-            LOGGER.warning("Markers not found in the content.");
-            return null; // Early return if markers are not found
+        for (Element gobbet : gobbetElements) {
+            extractedContent.append(gobbet.outerHtml()); // Appends the entire HTML of each gobbet section
         }
 
-        // Remove unwanted elements
-        Document contentDoc = Jsoup.parse(extractedContent);
-        contentDoc.select("figcaption, img").remove();
-
-        // Save the HTML content to a file for checking
-        saveToFile(contentDoc.html(), "extractedHtmlContent.html");
-
-        // Return the clean HTML content
-        return contentDoc.html();
-    }
-
-    private static String extractContentBetweenMarkers(Document document, String startMarker, String endMarker) {
-        String bodyHtml = document.select("body").html();
-        int startIndex = bodyHtml.indexOf(startMarker);
-        int endIndex = bodyHtml.indexOf(endMarker, startIndex);
-
-        if (startIndex == -1 || endIndex == -1) {
-            LOGGER.warning("Start or end marker not found in the document.");
+        // Check if any content was extracted
+        if (extractedContent.length() == 0) {
+            LOGGER.warning("No content extracted from the gobbet sections.");
             return null;
         }
 
-        return bodyHtml.substring(startIndex, endIndex);
+        // Return the extracted HTML content
+        return extractedContent.toString();
     }
 
     private static void saveToFile(String content, String fileName) throws IOException {

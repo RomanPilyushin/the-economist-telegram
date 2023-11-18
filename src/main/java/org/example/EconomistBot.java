@@ -106,33 +106,29 @@ public class EconomistBot extends TelegramLongPollingBot {
         return BOT_TOKEN;
     }
 
+    // Updated onUpdateReceived method to handle news extraction and sending
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             long chatId = update.getMessage().getChatId();
-            String inputText = update.getMessage().getText();
-
-            LOGGER.info("Received message: " + inputText + " from Chat ID: " + chatId);
-
-            if ("/start".equals(inputText)) {
-                subscribedUsers.add(chatId);
-                LOGGER.info("User subscribed. Chat ID: " + chatId);
-                sendNewsUpdate(chatId);
-            }
-        }
-        if (update.hasMessage() && update.getMessage().hasText()) {
             String messageText = update.getMessage().getText();
-            if (messageText.equals("/news")) { // Example command
+
+            if ("/start".equals(messageText)) {
+                // Subscribe the user and send initial news
+                subscribedUsers.add(chatId);
                 try {
-                    String newsContent = WebContentDownloader.downloadContent();
-                    if (newsContent != null && !newsContent.isEmpty()) {
-                        sendLongMessage(update.getMessage().getChatId(), newsContent);
-                    } else {
-                        sendMessage(update.getMessage().getChatId(), "No news content available.");
-                    }
+                    String newsContent = DownloadSmallNews.downloadContent();
+                    sendNewsItems(chatId, newsContent);
                 } catch (IOException e) {
-                    e.printStackTrace();
-                    sendMessage(update.getMessage().getChatId(), "Failed to download news content.");
+                    LOGGER.severe("Error in downloading content: " + e.getMessage());
+                }
+            } else if ("/news".equals(messageText)) {
+                // Send latest news
+                try {
+                    String newsContent = DownloadSmallNews.downloadContent();
+                    sendNewsItems(chatId, newsContent);
+                } catch (IOException e) {
+                    LOGGER.severe("Error in downloading content: " + e.getMessage());
                 }
             }
         }
@@ -270,18 +266,44 @@ public class EconomistBot extends TelegramLongPollingBot {
 
      */
 
+    // Schedule to send daily news
     private void sendDailyNews() {
-        try {
-            String htmlContent = WebContentDownloader.downloadContent();
-            List<String> newsBlocks = extractNewsBlocks(htmlContent);
-
-            for (Long chatId : subscribedUsers) {
-                for (String newsBlock : newsBlocks) {
-                    sendLongMessage(chatId, newsBlock);
-                }
+        for (Long chatId : subscribedUsers) {
+            try {
+                String newsContent = DownloadSmallNews.downloadContent();
+                sendNewsItems(chatId, newsContent);
+            } catch (IOException e) {
+                LOGGER.severe("Error in downloading content: " + e.getMessage());
             }
-        } catch (IOException e) {
-            LOGGER.severe("Error sending daily news: " + e.getMessage());
+        }
+    }
+
+    // New method to extract and send individual news items
+    private void sendNewsItems(long chatId, String htmlContent) {
+        Document document = Jsoup.parse(htmlContent);
+        Elements newsItems = document.select("div._gobbet > div > p");
+
+        for (Element item : newsItems) {
+            // Convert the Element to an HTML string and replace <p> tags with Telegram-supported tags
+            String newsText = item.html()
+                    .replaceAll("<p>", "")
+                    .replaceAll("</p>", "\n")
+                    .replaceAll("<strong>", "<b>")
+                    .replaceAll("</strong>", "</b>");
+
+            sendHtmlMessage(chatId, newsText);
+        }
+    }
+
+    private void sendHtmlMessage(Long chatId, String htmlText) {
+        SendMessage message = new SendMessage();
+        message.setChatId(String.valueOf(chatId));
+        message.setText(htmlText);
+        message.enableHtml(true); // Enable HTML formatting for the message
+
+        try {
+            execute(message);
+        } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }

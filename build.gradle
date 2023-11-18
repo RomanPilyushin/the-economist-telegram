@@ -23,8 +23,6 @@ task fatJar(type: Jar) {
     with jar
 }
 
-
-
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
@@ -40,6 +38,10 @@ dependencies {
 
     // Servlet API
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation 'org.seleniumhq.selenium:selenium-java:4.15.0'
+
 }
 
 tasks.test {
