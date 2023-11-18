@@ -60,6 +60,7 @@ public class EconomistBot extends TelegramLongPollingBot {
     }
 
     public EconomistBot() {
+        subscribedUsers.addAll(DatabaseUtil.getAllUsers());
         scheduleDailyNews();
     }
 
@@ -114,25 +115,24 @@ public class EconomistBot extends TelegramLongPollingBot {
             String messageText = update.getMessage().getText();
 
             if ("/start".equals(messageText)) {
-                // Subscribe the user and send initial news
-                subscribedUsers.add(chatId);
-                try {
-                    String newsContent = DownloadSmallNews.downloadContent();
-                    sendNewsItems(chatId, newsContent);
-                } catch (IOException e) {
-                    LOGGER.severe("Error in downloading content: " + e.getMessage());
-                }
+                handleStartCommand(chatId);
             } else if ("/news".equals(messageText)) {
-                // Send latest news
-                try {
-                    String newsContent = DownloadSmallNews.downloadContent();
-                    sendNewsItems(chatId, newsContent);
-                } catch (IOException e) {
-                    LOGGER.severe("Error in downloading content: " + e.getMessage());
-                }
+                // Other commands handling
             }
+            // Add more command handling as needed
         }
     }
+
+
+    private void handleStartCommand(long chatId) {
+        if (!subscribedUsers.contains(chatId)) {
+            subscribedUsers.add(chatId);
+            DatabaseUtil.addUser(chatId); // Add new user to the database
+            sendMessage(chatId, "Welcome! You have been subscribed.");
+        }
+        sendNewsUpdate(chatId); // Send news update to the user
+    }
+
 
     /**
      * Sends a long message by splitting it into smaller parts if necessary.
@@ -153,7 +153,7 @@ public class EconomistBot extends TelegramLongPollingBot {
         // Adjust to Kiev Time Zone (EET, UTC+2/UTC+3)
         ZoneId kievZoneId = ZoneId.of("Europe/Kiev");
         ZonedDateTime nowInKiev = ZonedDateTime.now(kievZoneId);
-        ZonedDateTime nextRun = nowInKiev.withHour(15).withMinute(45).withSecond(0);
+        ZonedDateTime nextRun = nowInKiev.withHour(17).withMinute(0).withSecond(0);
         if (nowInKiev.compareTo(nextRun) > 0)
             nextRun = nextRun.plusDays(1);
 
@@ -238,18 +238,21 @@ public class EconomistBot extends TelegramLongPollingBot {
 
     private void sendNewsUpdate(long chatId) {
         try {
-            LOGGER.info("Sending news update to Chat ID: " + chatId);
-            String htmlContent = WebContentDownloader.downloadContent();
-            List<String> newsBlocks = extractNewsBlocks(htmlContent);
+            LOGGER.info("Fetching news content for Chat ID: " + chatId);
+            String htmlContent = DownloadSmallNews.downloadContent();
 
-            for (String newsBlock : newsBlocks) {
-                sendLongMessage(chatId, newsBlock);
+            if (htmlContent != null && !htmlContent.isEmpty()) {
+                // Process and send the news content to the user
+                sendNewsItems(chatId, htmlContent);
+            } else {
+                sendMessage(chatId, "Currently, there are no news updates available.");
             }
         } catch (IOException e) {
-            LOGGER.severe("Error sending news update: " + e.getMessage());
-            e.printStackTrace();
+            LOGGER.severe("Error fetching news content: " + e.getMessage());
+            sendMessage(chatId, "An error occurred while fetching news updates.");
         }
     }
+
     /*
     private void sendDailyNews() {
         // Fetch and send daily news to all subscribed users at 9 AM
@@ -268,15 +271,21 @@ public class EconomistBot extends TelegramLongPollingBot {
 
     // Schedule to send daily news
     private void sendDailyNews() {
+        // Fetch latest news content
+        String newsContent;
+        try {
+            newsContent = DownloadSmallNews.downloadContent();
+        } catch (IOException e) {
+            LOGGER.severe("Error in downloading content: " + e.getMessage());
+            return;
+        }
+
+        // Send news to all subscribed users
         for (Long chatId : subscribedUsers) {
-            try {
-                String newsContent = DownloadSmallNews.downloadContent();
-                sendNewsItems(chatId, newsContent);
-            } catch (IOException e) {
-                LOGGER.severe("Error in downloading content: " + e.getMessage());
-            }
+            sendNewsItems(chatId, newsContent);
         }
     }
+
 
     // New method to extract and send individual news items
     private void sendNewsItems(long chatId, String htmlContent) {
@@ -284,7 +293,6 @@ public class EconomistBot extends TelegramLongPollingBot {
         Elements newsItems = document.select("div._gobbet > div > p");
 
         for (Element item : newsItems) {
-            // Convert the Element to an HTML string and replace <p> tags with Telegram-supported tags
             String newsText = item.html()
                     .replaceAll("<p>", "")
                     .replaceAll("</p>", "\n")
@@ -294,6 +302,7 @@ public class EconomistBot extends TelegramLongPollingBot {
             sendHtmlMessage(chatId, newsText);
         }
     }
+
 
     private void sendHtmlMessage(Long chatId, String htmlText) {
         SendMessage message = new SendMessage();
