@@ -13,6 +13,9 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -219,38 +222,83 @@ public class EconomistBot extends TelegramLongPollingBot {
     }
     */
 
-    private List<String> extractNewsBlocks(String htmlContent) {
-        List<String> newsBlocks = new ArrayList<>();
-        Document document = Jsoup.parse(htmlContent);
-
-        // Select paragraphs that are direct children of div with class '_gobbet'
-        Elements gobbetNewsParagraphs = document.select("div._gobbet > div > p");
-
-        for (Element paragraph : gobbetNewsParagraphs) {
-            String paragraphText = paragraph.text().trim();
-            if (!paragraphText.isEmpty()) {
-                newsBlocks.add(paragraphText);
-            }
-        }
-
-        return newsBlocks;
-    }
 
     private void sendNewsUpdate(long chatId) {
         try {
-            LOGGER.info("Fetching news content for Chat ID: " + chatId);
-            String htmlContent = DownloadSmallNews.downloadContent();
-
-            if (htmlContent != null && !htmlContent.isEmpty()) {
-                // Process and send the news content to the user
-                sendNewsItems(chatId, htmlContent);
+            // First, send small news updates as individual HTML messages
+            String smallNewsContent = DownloadSmallNews.downloadContent();
+            if (smallNewsContent != null && !smallNewsContent.isEmpty()) {
+                List<String> smallNewsItems = extractSmallNewsItems(smallNewsContent);
+                for (String newsItem : smallNewsItems) {
+                    sendHtmlMessage(chatId, newsItem);
+                }
             } else {
-                sendMessage(chatId, "Currently, there are no news updates available.");
+                sendMessage(chatId, "Currently, there are no small news updates available.");
+            }
+
+            // Then, send structured news blocks
+            String bigNewsContent = new String(Files.readAllBytes(Paths.get("extractedBigHtmlContent.html")), StandardCharsets.UTF_8);
+            if (bigNewsContent != null && !bigNewsContent.isEmpty()) {
+                List<String> newsBlocks = extractNewsBlocks(bigNewsContent);
+                for (String newsBlock : newsBlocks) {
+                    sendHtmlMessage(chatId, newsBlock);
+                }
+            } else {
+                sendMessage(chatId, "Currently, there are no detailed news updates available.");
             }
         } catch (IOException e) {
             LOGGER.severe("Error fetching news content: " + e.getMessage());
             sendMessage(chatId, "An error occurred while fetching news updates.");
         }
+    }
+
+    private List<String> extractNewsBlocks(String htmlContent) {
+        List<String> formattedNewsBlocks = new ArrayList<>();
+        Document document = Jsoup.parse(htmlContent);
+        Elements articleElements = document.select("div.news-block");
+
+        for (Element article : articleElements) {
+            StringBuilder newsBlockBuilder = new StringBuilder();
+
+            // Extract and format the title in bold
+            String title = article.select("h2").text();
+            if (!title.isEmpty()) {
+                newsBlockBuilder.append("<b>").append(title).append("</b>\n");
+            }
+
+            // Extract and add image URL
+            String imageUrl = article.select("img").attr("src");
+            if (!imageUrl.isEmpty()) {
+                newsBlockBuilder.append(imageUrl).append("\n");
+            }
+
+            // Extract and format text paragraphs
+            Elements paragraphs = article.select("p");
+            for (Element paragraph : paragraphs) {
+                String text = paragraph.text();
+                newsBlockBuilder.append(text).append("\n\n");
+            }
+
+            formattedNewsBlocks.add(newsBlockBuilder.toString().trim());
+        }
+        return formattedNewsBlocks;
+    }
+
+
+    private List<String> extractSmallNewsItems(String htmlContent) {
+        List<String> newsItems = new ArrayList<>();
+        Document document = Jsoup.parse(htmlContent);
+        Elements smallNewsElements = document.select("div._gobbet > div > p");
+
+        for (Element item : smallNewsElements) {
+            String newsText = item.html()
+                    .replaceAll("<p>", "")
+                    .replaceAll("</p>", "\n")
+                    .replaceAll("<strong>", "<b>")
+                    .replaceAll("</strong>", "</b>");
+            newsItems.add(newsText);
+        }
+        return newsItems;
     }
 
     /*

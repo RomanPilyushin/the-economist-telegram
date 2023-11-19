@@ -47,15 +47,19 @@ public class DownloadBigNews {
             // Extract the main image URL
             String imageUrl = article.select("figure._main-image img").attr("src");
 
-            // Extract the article text
-            String text = article.select("div._content").text();
-
-            // Format and append the extracted information as HTML
+            // Start formatting the news block
             extractedContent.append("<div class='news-block'>")
                     .append("<h2>").append(headline).append("</h2>")
-                    .append("<img src='").append(imageUrl).append("' alt='News Image'>")
-                    .append("<p>").append(text).append("</p>")
-                    .append("</div>\n");
+                    .append("<img src='").append(imageUrl).append("' alt='News Image'>");
+
+            // Extract and append each paragraph individually
+            Elements paragraphs = article.select("div._content p");
+            for (Element paragraph : paragraphs) {
+                extractedContent.append("<p>").append(paragraph.text()).append("</p>");
+            }
+
+            // Close the news block
+            extractedContent.append("</div>\n");
         }
 
         // Check if any content was extracted
@@ -67,6 +71,7 @@ public class DownloadBigNews {
         // Return the extracted HTML content
         return extractedContent.toString();
     }
+
 
 
     private static void saveToFile(String content, String fileName) throws IOException {
