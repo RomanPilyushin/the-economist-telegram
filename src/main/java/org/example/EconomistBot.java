@@ -180,52 +180,10 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-    /*
-    private List<String> extractNewsBlocks(String htmlContent) {
-        List<String> newsBlocks = new ArrayList<>();
-        Document document = Jsoup.parse(htmlContent);
-        Set<String> titledArticleParagraphs = new HashSet<>();
-
-        // First, process titled news articles
-
-        Elements titledNewsArticles = document.select("div._article.ds-layout-grid");
-        for (Element article : titledNewsArticles) {
-            StringBuilder newsText = new StringBuilder();
-            String headline = article.select("h3._headline").text().trim();
-            if (!headline.isEmpty()) {
-                newsText.append(headline).append("\n\n");
-            }
-
-            Elements paragraphs = article.select("p");
-            for (Element paragraph : paragraphs) {
-                String paragraphText = paragraph.text().trim();
-                newsText.append(paragraphText).append("\n\n");
-                titledArticleParagraphs.add(paragraphText);  // Keep track of paragraphs in titled articles
-            }
-
-            if (!newsText.toString().trim().isEmpty()) {
-                newsBlocks.add(newsText.toString().trim());
-            }
-        }
-
-        // Then, process standalone <p> tags excluding those in titled articles and the specific unwanted paragraph
-        Elements standaloneParagraphs = document.select("p:not(div._article.ds-layout-grid > p)");
-        for (Element paragraph : standaloneParagraphs) {
-            String paragraphText = paragraph.text().trim();
-            if (!paragraphText.isEmpty() && !titledArticleParagraphs.contains(paragraphText) &&
-                    !paragraphText.equals("Catch up quickly on the global stories that matter")) {
-                newsBlocks.add(paragraphText);
-            }
-        }
-
-        return newsBlocks;
-    }
-    */
-
 
     private void sendNewsUpdate(long chatId) {
         try {
-            // First, send small news updates as individual HTML messages
+            // Fetch and send small news updates
             String smallNewsContent = DownloadSmallNews.downloadContent();
             if (smallNewsContent != null && !smallNewsContent.isEmpty()) {
                 List<String> smallNewsItems = extractSmallNewsItems(smallNewsContent);
@@ -236,8 +194,8 @@ public class EconomistBot extends TelegramLongPollingBot {
                 sendMessage(chatId, "Currently, there are no small news updates available.");
             }
 
-            // Then, send structured news blocks
-            String bigNewsContent = new String(Files.readAllBytes(Paths.get("extractedBigHtmlContent.html")), StandardCharsets.UTF_8);
+            // Fetch and send detailed news blocks
+            String bigNewsContent = DownloadBigNews.downloadContent(); // Fetch big news content directly
             if (bigNewsContent != null && !bigNewsContent.isEmpty()) {
                 List<String> newsBlocks = extractNewsBlocks(bigNewsContent);
                 for (String newsBlock : newsBlocks) {
@@ -251,6 +209,7 @@ public class EconomistBot extends TelegramLongPollingBot {
             sendMessage(chatId, "An error occurred while fetching news updates.");
         }
     }
+
 
     private List<String> extractNewsBlocks(String htmlContent) {
         List<String> formattedNewsBlocks = new ArrayList<>();
@@ -301,38 +260,38 @@ public class EconomistBot extends TelegramLongPollingBot {
         return newsItems;
     }
 
-    /*
-    private void sendDailyNews() {
-        // Fetch and send daily news to all subscribed users at 9 AM
-        try {
-            String newsContent = WebContentDownloader.downloadContent();
-            for (Long chatId : subscribedUsers) {
-                sendLongMessage(chatId, newsContent);
-            }
-        } catch (IOException e) {
-            LOGGER.severe("Error sending daily news: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-
-     */
-
+    // Schedule to send daily news
     // Schedule to send daily news
     private void sendDailyNews() {
-        // Fetch latest news content
-        String newsContent;
+        // Fetch latest news content for both small news and big news blocks
+        String smallNewsContent;
+        String bigNewsContent;
         try {
-            newsContent = DownloadSmallNews.downloadContent();
+            smallNewsContent = DownloadSmallNews.downloadContent();
+            bigNewsContent = DownloadBigNews.downloadContent(); // Fetch big news content directly
         } catch (IOException e) {
             LOGGER.severe("Error in downloading content: " + e.getMessage());
+            // If there's an error, stop further execution
             return;
         }
 
-        // Send news to all subscribed users
+        // Send both news types to all subscribed users
         for (Long chatId : subscribedUsers) {
-            sendNewsItems(chatId, newsContent);
+            // Send small news items
+            if (smallNewsContent != null && !smallNewsContent.isEmpty()) {
+                sendNewsItems(chatId, smallNewsContent);
+            }
+
+            // Send big news blocks
+            if (bigNewsContent != null && !bigNewsContent.isEmpty()) {
+                List<String> newsBlocks = extractNewsBlocks(bigNewsContent);
+                for (String newsBlock : newsBlocks) {
+                    sendHtmlMessage(chatId, newsBlock);
+                }
+            }
         }
     }
+
 
 
     // New method to extract and send individual news items

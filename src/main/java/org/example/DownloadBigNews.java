@@ -72,8 +72,6 @@ public class DownloadBigNews {
         return extractedContent.toString();
     }
 
-
-
     private static void saveToFile(String content, String fileName) throws IOException {
         if (content != null && !content.isEmpty()) {
             Files.write(Paths.get(fileName), content.getBytes(StandardCharsets.UTF_8));

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add function of download news with image">
-      <change afterPath="$PROJECT_DIR$/extractedBigHtmlContent.html" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add news block fetching">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
@@ -160,15 +159,9 @@
       <workItem from="1700313826755" duration="29000" />
       <workItem from="1700313970413" duration="6228000" />
       <workItem from="1700327245164" duration="27000" />
-      <workItem from="1700413656154" duration="2090000" />
-    </task>
-    <task id="LOCAL-00001" summary="Set up the bot">
-      <option name="closed" value="true" />
-      <created>1700059668040</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1700059668040</updated>
+      <workItem from="1700413656154" duration="2274000" />
+      <workItem from="1700415986107" duration="983000" />
+      <workItem from="1700464809602" duration="631000" />
     </task>
     <task id="LOCAL-00002" summary="Add Logger">
       <option name="closed" value="true" />
@@ -554,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700414378143</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Add news block fetching">
+      <option name="closed" value="true" />
+      <created>1700415921570</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1700415921570</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +574,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add Tasks Jar" />
     <MESSAGE value="Change to Groovy" />
     <MESSAGE value="Update Manifest" />
     <MESSAGE value="Update railway.yml" />
@@ -598,7 +598,8 @@
     <MESSAGE value="Add database" />
     <MESSAGE value="Edit time for the news" />
     <MESSAGE value="Add function of download news with image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add function of download news with image" />
+    <MESSAGE value="Add news block fetching" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add news block fetching" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
