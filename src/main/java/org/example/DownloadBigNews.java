@@ -33,7 +33,12 @@ public class DownloadBigNews {
     public static String downloadContent() throws IOException {
         LOGGER.info("Starting content download...");
         String url = "https://www.economist.com/the-world-in-brief";
-        Document document = Jsoup.connect(url).header("Content-Type", "text/html; charset=utf-8").get();
+        Document document = Jsoup.connect(url)
+                .header("Content-Type", "text/html; charset=utf-8")
+                .header("Cache-Control", "no-cache, no-store, must-revalidate")
+                .header("Pragma", "no-cache")
+                .header("Expires", "0")
+                .get();
         LOGGER.info("Connected to URL: " + url);
 
         // Select all article elements
