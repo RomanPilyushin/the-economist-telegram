@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Updated bot sending also news block">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add README.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,15 +157,7 @@
       <workItem from="1700327245164" duration="27000" />
       <workItem from="1700413656154" duration="2274000" />
       <workItem from="1700415986107" duration="983000" />
-      <workItem from="1700464809602" duration="2170000" />
-    </task>
-    <task id="LOCAL-00003" summary="Change Telegram's API to TelegramBots">
-      <option name="closed" value="true" />
-      <created>1700064712019</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1700064712019</updated>
+      <workItem from="1700464809602" duration="2587000" />
     </task>
     <task id="LOCAL-00004" summary="Change Markdown to HTML">
       <option name="closed" value="true" />
@@ -554,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700465702808</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Add README.md">
+      <option name="closed" value="true" />
+      <created>1700468656094</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1700468656094</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +570,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update Manifest" />
     <MESSAGE value="Update railway.yml" />
     <MESSAGE value="Add config.properties" />
     <MESSAGE value="Add railway.json" />
@@ -598,7 +594,8 @@
     <MESSAGE value="Add function of download news with image" />
     <MESSAGE value="Add news block fetching" />
     <MESSAGE value="Updated bot sending also news block" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated bot sending also news block" />
+    <MESSAGE value="Add README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add README.md" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
