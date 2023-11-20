@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update DownloadNews">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Remove file saving">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadSmallNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadSmallNews.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,15 +161,7 @@
       <workItem from="1700327245164" duration="27000" />
       <workItem from="1700413656154" duration="2274000" />
       <workItem from="1700415986107" duration="983000" />
-      <workItem from="1700464809602" duration="6304000" />
-    </task>
-    <task id="LOCAL-00010" summary="Deploy fatjar">
-      <option name="closed" value="true" />
-      <created>1700117198130</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1700117198130</updated>
+      <workItem from="1700464809602" duration="7292000" />
     </task>
     <task id="LOCAL-00011" summary="Add Dockerfile">
       <option name="closed" value="true" />
@@ -553,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700472482573</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Remove file saving">
+      <option name="closed" value="true" />
+      <created>1700472722414</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1700472722414</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +574,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Incorporated Jetty to main class" />
     <MESSAGE value="Provided Healthcheck" />
     <MESSAGE value="Uptade railway.json" />
     <MESSAGE value="Update railway.json" />
@@ -597,7 +598,8 @@
     <MESSAGE value="Edit sendNewsUpdate" />
     <MESSAGE value="Edit sendDailyNews" />
     <MESSAGE value="Update DownloadNews" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update DownloadNews" />
+    <MESSAGE value="Remove file saving" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove file saving" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

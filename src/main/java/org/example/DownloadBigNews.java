@@ -1,6 +1,7 @@
 package org.example;
 
 
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -33,12 +34,20 @@ public class DownloadBigNews {
     public static String downloadContent() throws IOException {
         LOGGER.info("Starting content download...");
         String url = "https://www.economist.com/the-world-in-brief?nocache=" + System.currentTimeMillis();
-        Document document = Jsoup.connect(url)
+
+        // Execute the request and capture the response
+        Connection.Response response = Jsoup.connect(url)
                 .header("Content-Type", "text/html; charset=utf-8")
                 .header("Cache-Control", "no-cache, no-store, must-revalidate")
                 .header("Pragma", "no-cache")
                 .header("Expires", "0")
-                .get();
+                .execute();
+
+        // Log the response headers
+        LOGGER.info("Response Headers: " + response.headers().toString());
+
+        // Parse the document from the response
+        Document document = response.parse();
         LOGGER.info("Connected to URL: " + url);
 
         // Select all article elements
