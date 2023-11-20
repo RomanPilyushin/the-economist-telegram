@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add README.md" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update README.md">
+      <change beforePath="$PROJECT_DIR$/extractedBigHtmlContent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,15 +160,7 @@
       <workItem from="1700327245164" duration="27000" />
       <workItem from="1700413656154" duration="2274000" />
       <workItem from="1700415986107" duration="983000" />
-      <workItem from="1700464809602" duration="2587000" />
-    </task>
-    <task id="LOCAL-00004" summary="Change Markdown to HTML">
-      <option name="closed" value="true" />
-      <created>1700074791333</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1700074791333</updated>
+      <workItem from="1700464809602" duration="2917000" />
     </task>
     <task id="LOCAL-00005" summary="Send each news as separate massage">
       <option name="closed" value="true" />
@@ -551,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700468656094</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Update README.md">
+      <option name="closed" value="true" />
+      <created>1700469007470</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1700469007470</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +573,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update railway.yml" />
     <MESSAGE value="Add config.properties" />
     <MESSAGE value="Add railway.json" />
     <MESSAGE value="Add Dockerfile" />
@@ -595,7 +597,8 @@
     <MESSAGE value="Add news block fetching" />
     <MESSAGE value="Updated bot sending also news block" />
     <MESSAGE value="Add README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add README.md" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
