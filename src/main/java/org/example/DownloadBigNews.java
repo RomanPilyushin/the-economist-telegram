@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 public class DownloadBigNews {
     private static final Logger LOGGER = Logger.getLogger(DownloadSmallNews.class.getName());
-
+    /*
     public static void main(String[] args) {
         try {
             LOGGER.info("Starting WebContentDownloader main method...");
@@ -29,7 +29,7 @@ public class DownloadBigNews {
             LOGGER.severe("Error in downloading content: " + e.getMessage());
         }
     }
-
+    */
     public static String downloadContent() throws IOException {
         LOGGER.info("Starting content download...");
         String url = "https://www.economist.com/the-world-in-brief";
@@ -77,7 +77,7 @@ public class DownloadBigNews {
         return extractedContent.toString();
     }
 
-    private static void saveToFile(String content, String fileName) throws IOException {
+    static void saveToFile(String content, String fileName) throws IOException {
         if (content != null && !content.isEmpty()) {
             Files.write(Paths.get(fileName), content.getBytes(StandardCharsets.UTF_8));
             LOGGER.info("Saved content to file: " + fileName);

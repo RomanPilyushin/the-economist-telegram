@@ -183,9 +183,10 @@ public class EconomistBot extends TelegramLongPollingBot {
 
     private void sendNewsUpdate(long chatId) {
         try {
-            // Fetch and send small news updates
+            // Download and save small news content
             String smallNewsContent = DownloadSmallNews.downloadContent();
             if (smallNewsContent != null && !smallNewsContent.isEmpty()) {
+                DownloadSmallNews.saveToFile(smallNewsContent, "extractedHtmlContent.html");
                 List<String> smallNewsItems = extractSmallNewsItems(smallNewsContent);
                 for (String newsItem : smallNewsItems) {
                     sendHtmlMessage(chatId, newsItem);
@@ -194,9 +195,10 @@ public class EconomistBot extends TelegramLongPollingBot {
                 sendMessage(chatId, "Currently, there are no small news updates available.");
             }
 
-            // Fetch and send detailed news blocks
-            String bigNewsContent = DownloadBigNews.downloadContent(); // Fetch big news content directly
+            // Download and save big news content
+            String bigNewsContent = DownloadBigNews.downloadContent();
             if (bigNewsContent != null && !bigNewsContent.isEmpty()) {
+                DownloadBigNews.saveToFile(bigNewsContent, "extractedBigHtmlContent.html");
                 List<String> newsBlocks = extractNewsBlocks(bigNewsContent);
                 for (String newsBlock : newsBlocks) {
                     sendHtmlMessage(chatId, newsBlock);
@@ -209,6 +211,7 @@ public class EconomistBot extends TelegramLongPollingBot {
             sendMessage(chatId, "An error occurred while fetching news updates.");
         }
     }
+
 
 
     private List<String> extractNewsBlocks(String htmlContent) {

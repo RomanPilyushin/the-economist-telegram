@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Delete html file">
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Jsoup.connect">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadSmallNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadSmallNews.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,15 +159,7 @@
       <workItem from="1700327245164" duration="27000" />
       <workItem from="1700413656154" duration="2274000" />
       <workItem from="1700415986107" duration="983000" />
-      <workItem from="1700464809602" duration="3539000" />
-    </task>
-    <task id="LOCAL-00006" summary="Send news correctly to the user">
-      <option name="closed" value="true" />
-      <created>1700113394691</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1700113394691</updated>
+      <workItem from="1700464809602" duration="4225000" />
     </task>
     <task id="LOCAL-00007" summary="Provide check news every hour and send all news at 9am">
       <option name="closed" value="true" />
@@ -555,7 +545,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700469405861</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Update Jsoup.connect">
+      <option name="closed" value="true" />
+      <created>1700469993694</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1700469993694</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +572,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add railway.json" />
     <MESSAGE value="Add Dockerfile" />
     <MESSAGE value="Update Dockerfile" />
     <MESSAGE value="Add Jetty" />
@@ -599,7 +596,8 @@
     <MESSAGE value="Add README.md" />
     <MESSAGE value="Update README.md" />
     <MESSAGE value="Delete html file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete html file" />
+    <MESSAGE value="Update Jsoup.connect" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Jsoup.connect" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
