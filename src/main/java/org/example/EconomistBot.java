@@ -117,11 +117,7 @@ public class EconomistBot extends TelegramLongPollingBot {
             long chatId = update.getMessage().getChatId();
             String messageText = update.getMessage().getText();
 
-            if ("/start".equals(messageText)) {
-                handleStartCommand(chatId);
-            } else if ("/news".equals(messageText)) {
-                // Other commands handling
-            }
+            if ("/start".equals(messageText)) { handleStartCommand(chatId); }
             // Add more command handling as needed
         }
     }
@@ -281,24 +277,6 @@ public class EconomistBot extends TelegramLongPollingBot {
             LOGGER.severe("Error in fetching and sending daily news: " + e.getMessage());
         }
     }
-
-
-    // New method to extract and send individual news items
-    private void sendNewsItems(long chatId, String htmlContent) {
-        Document document = Jsoup.parse(htmlContent);
-        Elements newsItems = document.select("div._gobbet > div > p");
-
-        for (Element item : newsItems) {
-            String newsText = item.html()
-                    .replaceAll("<p>", "")
-                    .replaceAll("</p>", "\n")
-                    .replaceAll("<strong>", "<b>")
-                    .replaceAll("</strong>", "</b>");
-
-            sendHtmlMessage(chatId, newsText);
-        }
-    }
-
 
     private void sendHtmlMessage(Long chatId, String htmlText) {
         SendMessage message = new SendMessage();

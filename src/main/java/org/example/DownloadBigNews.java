@@ -11,11 +11,14 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 public class DownloadBigNews {
     private static final Logger LOGGER = Logger.getLogger(DownloadSmallNews.class.getName());
-    /*
+    private static Map<String, String> lastFetchedHeaders = new HashMap<>();
+
     public static void main(String[] args) {
         try {
             LOGGER.info("Starting WebContentDownloader main method...");
@@ -30,27 +33,35 @@ public class DownloadBigNews {
             LOGGER.severe("Error in downloading content: " + e.getMessage());
         }
     }
-    */
+
     public static String downloadContent() throws IOException {
         LOGGER.info("Starting content download...");
         String url = "https://www.economist.com/the-world-in-brief?nocache=" + System.currentTimeMillis();
 
-        // Execute the request and capture the response
-        Connection.Response response = Jsoup.connect(url)
+        Connection connection = Jsoup.connect(url)
                 .header("Content-Type", "text/html; charset=utf-8")
                 .header("Cache-Control", "no-cache, no-store, must-revalidate")
                 .header("Pragma", "no-cache")
-                .header("Expires", "0")
-                .execute();
+                .header("Expires", "0");
 
-        // Log the response headers
-        LOGGER.info("Response Headers: " + response.headers().toString());
+        // Use last-modified and etag headers for conditional requests
+        if (lastFetchedHeaders.containsKey("Last-Modified")) {
+            connection.header("If-Modified-Since", lastFetchedHeaders.get("Last-Modified"));
+        }
+        if (lastFetchedHeaders.containsKey("ETag")) {
+            connection.header("If-None-Match", lastFetchedHeaders.get("ETag"));
+        }
 
-        // Parse the document from the response
+        Connection.Response response = connection.execute();
+        updateLastFetchedHeaders(response);
+
+        // Check for 304 Not Modified
+        if (response.statusCode() == 304) {
+            LOGGER.info("Content not modified since last fetch.");
+            return null; // Content not modified
+        }
+
         Document document = response.parse();
-        LOGGER.info("Connected to URL: " + url);
-
-        // Select all article elements
         Elements articleElements = document.select("div._article");
         StringBuilder extractedContent = new StringBuilder();
 
@@ -76,14 +87,24 @@ public class DownloadBigNews {
             extractedContent.append("</div>\n");
         }
 
-        // Check if any content was extracted
         if (extractedContent.length() == 0) {
             LOGGER.warning("No content extracted from the article sections.");
             return null;
         }
 
-        // Return the extracted HTML content
         return extractedContent.toString();
+    }
+
+    private static void updateLastFetchedHeaders(Connection.Response response) {
+        String lastModified = response.header("Last-Modified");
+        String eTag = response.header("ETag");
+
+        if (lastModified != null) {
+            lastFetchedHeaders.put("Last-Modified", lastModified);
+        }
+        if (eTag != null) {
+            lastFetchedHeaders.put("ETag", eTag);
+        }
     }
 
     static void saveToFile(String content, String fileName) throws IOException {
