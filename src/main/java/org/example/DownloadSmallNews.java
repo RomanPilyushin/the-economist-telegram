@@ -30,7 +30,7 @@ public class DownloadSmallNews {
     */
     public static String downloadContent() throws IOException {
         LOGGER.info("Starting content download...");
-        String url = "https://www.economist.com/the-world-in-brief";
+        String url = "https://www.economist.com/the-world-in-brief?nocache=" + System.currentTimeMillis();
         Document document = Jsoup.connect(url)
                 .header("Content-Type", "text/html; charset=utf-8")
                 .header("Cache-Control", "no-cache, no-store, must-revalidate")

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit sendNewsUpdate">
-      <change afterPath="$PROJECT_DIR$/extractedBigHtmlContent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit sendDailyNews">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedBigHtmlContent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,15 +161,7 @@
       <workItem from="1700327245164" duration="27000" />
       <workItem from="1700413656154" duration="2274000" />
       <workItem from="1700415986107" duration="983000" />
-      <workItem from="1700464809602" duration="4865000" />
-    </task>
-    <task id="LOCAL-00008" summary="Provided only one main class in the project">
-      <option name="closed" value="true" />
-      <created>1700116305578</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1700116305578</updated>
+      <workItem from="1700464809602" duration="6001000" />
     </task>
     <task id="LOCAL-00009" summary="Add tasks jar to Gradle">
       <option name="closed" value="true" />
@@ -555,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700470814537</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Edit sendDailyNews">
+      <option name="closed" value="true" />
+      <created>1700471556323</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1700471556323</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +574,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update Dockerfile" />
     <MESSAGE value="Add Jetty" />
     <MESSAGE value="Incorporated Jetty to main class" />
     <MESSAGE value="Provided Healthcheck" />
@@ -599,7 +598,8 @@
     <MESSAGE value="Delete html file" />
     <MESSAGE value="Update Jsoup.connect" />
     <MESSAGE value="Edit sendNewsUpdate" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit sendNewsUpdate" />
+    <MESSAGE value="Edit sendDailyNews" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit sendDailyNews" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
