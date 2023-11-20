@@ -183,33 +183,32 @@ public class EconomistBot extends TelegramLongPollingBot {
 
     private void sendNewsUpdate(long chatId) {
         try {
-            // Fetch and save small news content
+            // Fetch small news content
             String smallNewsContent = DownloadSmallNews.downloadContent();
-            DownloadSmallNews.saveToFile(smallNewsContent, "extractedHtmlContent.html");
-
-            // Fetch and save big news content
-            String bigNewsContent = DownloadBigNews.downloadContent();
-            DownloadBigNews.saveToFile(bigNewsContent, "extractedBigHtmlContent.html");
-
-            // Read and send small news items
-            String updatedSmallNewsContent = new String(Files.readAllBytes(Paths.get("extractedHtmlContent.html")), StandardCharsets.UTF_8);
-            List<String> smallNewsItems = extractSmallNewsItems(updatedSmallNewsContent);
-            for (String newsItem : smallNewsItems) {
-                sendHtmlMessage(chatId, newsItem);
+            if (smallNewsContent != null && !smallNewsContent.isEmpty()) {
+                List<String> smallNewsItems = extractSmallNewsItems(smallNewsContent);
+                for (String newsItem : smallNewsItems) {
+                    sendHtmlMessage(chatId, newsItem);
+                }
+            } else {
+                sendMessage(chatId, "Currently, there are no small news updates available.");
             }
 
-            // Read and send big news blocks
-            String updatedBigNewsContent = new String(Files.readAllBytes(Paths.get("extractedBigHtmlContent.html")), StandardCharsets.UTF_8);
-            List<String> newsBlocks = extractNewsBlocks(updatedBigNewsContent);
-            for (String newsBlock : newsBlocks) {
-                sendHtmlMessage(chatId, newsBlock);
+            // Fetch big news content
+            String bigNewsContent = DownloadBigNews.downloadContent();
+            if (bigNewsContent != null && !bigNewsContent.isEmpty()) {
+                List<String> newsBlocks = extractNewsBlocks(bigNewsContent);
+                for (String newsBlock : newsBlocks) {
+                    sendHtmlMessage(chatId, newsBlock);
+                }
+            } else {
+                sendMessage(chatId, "Currently, there are no detailed news updates available.");
             }
         } catch (IOException e) {
-            LOGGER.severe("Error in updating news: " + e.getMessage());
-            sendMessage(chatId, "An error occurred while updating news.");
+            LOGGER.severe("Error fetching news content: " + e.getMessage());
+            sendMessage(chatId, "An error occurred while fetching news updates.");
         }
     }
-
 
 
     private List<String> extractNewsBlocks(String htmlContent) {
@@ -265,40 +264,23 @@ public class EconomistBot extends TelegramLongPollingBot {
     // Schedule to send daily news
     private void sendDailyNews() {
         try {
-            // Fetch and save the latest small news content
+            // Fetch the latest small news content
             String smallNewsContent = DownloadSmallNews.downloadContent();
-            DownloadSmallNews.saveToFile(smallNewsContent, "extractedHtmlContent.html");
+            List<String> smallNewsItems = !smallNewsContent.isEmpty() ? extractSmallNewsItems(smallNewsContent) : Collections.emptyList();
 
-            // Fetch and save the latest big news content
+            // Fetch the latest big news content
             String bigNewsContent = DownloadBigNews.downloadContent();
-            DownloadBigNews.saveToFile(bigNewsContent, "extractedBigHtmlContent.html");
-
-            // Read the saved small news content
-            String updatedSmallNewsContent = new String(Files.readAllBytes(Paths.get("extractedHtmlContent.html")), StandardCharsets.UTF_8);
-            List<String> smallNewsItems = extractSmallNewsItems(updatedSmallNewsContent);
-
-            // Read the saved big news content
-            String updatedBigNewsContent = new String(Files.readAllBytes(Paths.get("extractedBigHtmlContent.html")), StandardCharsets.UTF_8);
-            List<String> newsBlocks = extractNewsBlocks(updatedBigNewsContent);
+            List<String> newsBlocks = !bigNewsContent.isEmpty() ? extractNewsBlocks(bigNewsContent) : Collections.emptyList();
 
             // Send the news to all subscribed users
             for (Long chatId : subscribedUsers) {
-                // Send small news items
-                for (String newsItem : smallNewsItems) {
-                    sendHtmlMessage(chatId, newsItem);
-                }
-
-                // Send big news blocks
-                for (String newsBlock : newsBlocks) {
-                    sendHtmlMessage(chatId, newsBlock);
-                }
+                smallNewsItems.forEach(item -> sendHtmlMessage(chatId, item));
+                newsBlocks.forEach(block -> sendHtmlMessage(chatId, block));
             }
         } catch (IOException e) {
             LOGGER.severe("Error in fetching and sending daily news: " + e.getMessage());
         }
     }
-
-
 
 
     // New method to extract and send individual news items

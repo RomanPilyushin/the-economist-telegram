@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit sendDailyNews">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractedBigHtmlContent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update DownloadNews">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,15 +159,7 @@
       <workItem from="1700327245164" duration="27000" />
       <workItem from="1700413656154" duration="2274000" />
       <workItem from="1700415986107" duration="983000" />
-      <workItem from="1700464809602" duration="6001000" />
-    </task>
-    <task id="LOCAL-00009" summary="Add tasks jar to Gradle">
-      <option name="closed" value="true" />
-      <created>1700116742902</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1700116742902</updated>
+      <workItem from="1700464809602" duration="6304000" />
     </task>
     <task id="LOCAL-00010" summary="Deploy fatjar">
       <option name="closed" value="true" />
@@ -555,7 +545,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700471556323</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Update DownloadNews">
+      <option name="closed" value="true" />
+      <created>1700472482573</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1700472482573</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +572,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add Jetty" />
     <MESSAGE value="Incorporated Jetty to main class" />
     <MESSAGE value="Provided Healthcheck" />
     <MESSAGE value="Uptade railway.json" />
@@ -599,7 +596,8 @@
     <MESSAGE value="Update Jsoup.connect" />
     <MESSAGE value="Edit sendNewsUpdate" />
     <MESSAGE value="Edit sendDailyNews" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit sendDailyNews" />
+    <MESSAGE value="Update DownloadNews" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update DownloadNews" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
