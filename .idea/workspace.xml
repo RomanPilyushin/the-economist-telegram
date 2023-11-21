@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add checking for cache">
-      <change afterPath="$PROJECT_DIR$/extractedBigHtmlContent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,14 +161,7 @@
       <workItem from="1700415986107" duration="983000" />
       <workItem from="1700464809602" duration="11263000" />
       <workItem from="1700490761835" duration="475000" />
-    </task>
-    <task id="LOCAL-00014" summary="Delete fatjar instruction">
-      <option name="closed" value="true" />
-      <created>1700120485789</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1700120485789</updated>
+      <workItem from="1700550656285" duration="711000" />
     </task>
     <task id="LOCAL-00015" summary="Change JDK from 21 to 19">
       <option name="closed" value="true" />
@@ -556,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700478798226</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Add checking for cache">
+      <option name="closed" value="true" />
+      <created>1700550766604</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1700550766604</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
