@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update logger">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add checking for cache">
+      <change afterPath="$PROJECT_DIR$/extractedBigHtmlContent.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadSmallNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadSmallNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,15 +161,8 @@
       <workItem from="1700327245164" duration="27000" />
       <workItem from="1700413656154" duration="2274000" />
       <workItem from="1700415986107" duration="983000" />
-      <workItem from="1700464809602" duration="9894000" />
-    </task>
-    <task id="LOCAL-00013" summary="Add railway.yml">
-      <option name="closed" value="true" />
-      <created>1700119771144</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1700119771144</updated>
+      <workItem from="1700464809602" duration="11263000" />
+      <workItem from="1700490761835" duration="475000" />
     </task>
     <task id="LOCAL-00014" summary="Delete fatjar instruction">
       <option name="closed" value="true" />
@@ -557,7 +548,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700477460296</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Add checking for cache">
+      <option name="closed" value="true" />
+      <created>1700478798226</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1700478798226</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +575,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update railway.json" />
     <MESSAGE value="Update port and address" />
     <MESSAGE value="Updated railway.json" />
     <MESSAGE value="Updated railway.json (add restartPolicyMaxRetries)" />
@@ -601,7 +599,8 @@
     <MESSAGE value="Remove file saving" />
     <MESSAGE value="Add logger" />
     <MESSAGE value="Update logger" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update logger" />
+    <MESSAGE value="Add checking for cache" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add checking for cache" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
