@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class DownloadSmallNews {
     private static final Logger LOGGER = Logger.getLogger(DownloadSmallNews.class.getName());
-    private static Map<String, String> lastFetchedHeaders = new HashMap<>();
+    private static final Map<String, String> lastFetchedHeaders = new HashMap<>();
 
     public static void main(String[] args) {
         try {
