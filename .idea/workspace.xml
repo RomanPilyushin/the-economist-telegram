@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Add checking for cache">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit Dockerfile" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,15 +159,7 @@
       <workItem from="1700415986107" duration="983000" />
       <workItem from="1700464809602" duration="11263000" />
       <workItem from="1700490761835" duration="475000" />
-      <workItem from="1700550656285" duration="711000" />
-    </task>
-    <task id="LOCAL-00015" summary="Change JDK from 21 to 19">
-      <option name="closed" value="true" />
-      <created>1700140199857</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1700140199857</updated>
+      <workItem from="1700550656285" duration="1086000" />
     </task>
     <task id="LOCAL-00016" summary="Add manifest to jar file">
       <option name="closed" value="true" />
@@ -555,7 +545,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700550766604</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Edit Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700551632534</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1700551632534</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +572,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update port and address" />
     <MESSAGE value="Updated railway.json" />
     <MESSAGE value="Updated railway.json (add restartPolicyMaxRetries)" />
     <MESSAGE value="Edit extractNewsBlocks in EconomistBot.java" />
@@ -599,7 +596,8 @@
     <MESSAGE value="Add logger" />
     <MESSAGE value="Update logger" />
     <MESSAGE value="Add checking for cache" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add checking for cache" />
+    <MESSAGE value="Edit Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit Dockerfile" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
