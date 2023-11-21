@@ -74,7 +74,7 @@ public class DownloadBigNews {
 
             // Start formatting the news block
             extractedContent.append("<div class='news-block'>")
-                    .append("<h2>").append(headline).append("</h2>")
+                    .append("<b>").append(headline).append("</b>")
                     .append("<img src='").append(imageUrl).append("' alt='News Image'>");
 
             // Extract and append each paragraph individually

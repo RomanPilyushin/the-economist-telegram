@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit EconomistBot">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extractedBigHtmlContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/extractedBigHtmlContent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DownloadBigNews.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,15 +162,7 @@
       <workItem from="1700415986107" duration="983000" />
       <workItem from="1700464809602" duration="11263000" />
       <workItem from="1700490761835" duration="475000" />
-      <workItem from="1700550656285" duration="4602000" />
-    </task>
-    <task id="LOCAL-00019" summary="Add Gradle Wrapper">
-      <option name="closed" value="true" />
-      <created>1700144994623</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1700144994623</updated>
+      <workItem from="1700550656285" duration="4910000" />
     </task>
     <task id="LOCAL-00020" summary="Add Tasks Jar">
       <option name="closed" value="true" />
@@ -558,7 +548,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700552714896</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Edit EconomistBot">
+      <option name="closed" value="true" />
+      <created>1700555469263</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1700555469263</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

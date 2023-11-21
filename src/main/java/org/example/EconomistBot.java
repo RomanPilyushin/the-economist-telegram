@@ -198,10 +198,10 @@ public class EconomistBot extends TelegramLongPollingBot {
                 LOGGER.info("Fetched big news content");
                 List<String> newsBlocks = extractNewsBlocks(bigNewsContent);
                 for (String newsBlock : newsBlocks) {
-                    LOGGER.warning("No big news updates available");
                     sendHtmlMessage(chatId, newsBlock);
                 }
             } else {
+                LOGGER.warning("No big news updates available");
                 sendMessage(chatId, "Currently, there are no detailed news updates available.");
             }
         } catch (IOException e) {
@@ -209,7 +209,6 @@ public class EconomistBot extends TelegramLongPollingBot {
             sendMessage(chatId, "An error occurred while fetching news updates.");
         }
     }
-
 
     private List<String> extractNewsBlocks(String htmlContent) {
         List<String> formattedNewsBlocks = new ArrayList<>();
@@ -220,11 +219,11 @@ public class EconomistBot extends TelegramLongPollingBot {
             StringBuilder newsBlockBuilder = new StringBuilder();
 
             // Extract and format the title in bold
-            String title = article.select("h2").text();
-            if (!title.isEmpty()) {
-                newsBlockBuilder.append("<b>").append(title).append("</b>\n");
-            }
-
+            String title = article.select("b").text();
+            //if (!title.isEmpty()) {
+            //    newsBlockBuilder.append("<b>").append(title).append("</b>\n");
+            //}
+            newsBlockBuilder.append("<b>").append(title).append("</b>\n");
             // Extract and add image URL
             String imageUrl = article.select("img").attr("src");
             if (!imageUrl.isEmpty()) {
@@ -242,7 +241,6 @@ public class EconomistBot extends TelegramLongPollingBot {
         }
         return formattedNewsBlocks;
     }
-
 
     private List<String> extractSmallNewsItems(String htmlContent) {
         List<String> newsItems = new ArrayList<>();
@@ -296,5 +294,4 @@ public class EconomistBot extends TelegramLongPollingBot {
             e.printStackTrace();
         }
     }
-
 }
