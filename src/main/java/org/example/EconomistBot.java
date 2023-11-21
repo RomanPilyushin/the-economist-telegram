@@ -152,7 +152,7 @@ public class EconomistBot extends TelegramLongPollingBot {
         // Adjust to Kiev Time Zone (EET, UTC+2/UTC+3)
         ZoneId kievZoneId = ZoneId.of("Europe/Kiev");
         ZonedDateTime nowInKiev = ZonedDateTime.now(kievZoneId);
-        ZonedDateTime nextRun = nowInKiev.withHour(9).withMinute(0).withSecond(0);
+        ZonedDateTime nextRun = nowInKiev.withHour(13).withMinute(10).withSecond(0);
         if (nowInKiev.compareTo(nextRun) > 0)
             nextRun = nextRun.plusDays(1);
 
