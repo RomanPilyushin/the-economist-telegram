@@ -259,7 +259,6 @@ public class EconomistBot extends TelegramLongPollingBot {
     }
 
     // Schedule to send daily news
-    // Schedule to send daily news
     private void sendDailyNews() {
         try {
             // Fetch the latest small news content
