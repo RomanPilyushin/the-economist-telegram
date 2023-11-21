@@ -182,19 +182,23 @@ public class EconomistBot extends TelegramLongPollingBot {
             // Fetch small news content
             String smallNewsContent = DownloadSmallNews.downloadContent();
             if (smallNewsContent != null && !smallNewsContent.isEmpty()) {
+                LOGGER.info("Fetched small news content");
                 List<String> smallNewsItems = extractSmallNewsItems(smallNewsContent);
                 for (String newsItem : smallNewsItems) {
                     sendHtmlMessage(chatId, newsItem);
                 }
             } else {
+                LOGGER.warning("No small news updates available");
                 sendMessage(chatId, "Currently, there are no small news updates available.");
             }
 
             // Fetch big news content
             String bigNewsContent = DownloadBigNews.downloadContent();
             if (bigNewsContent != null && !bigNewsContent.isEmpty()) {
+                LOGGER.info("Fetched big news content");
                 List<String> newsBlocks = extractNewsBlocks(bigNewsContent);
                 for (String newsBlock : newsBlocks) {
+                    LOGGER.warning("No big news updates available");
                     sendHtmlMessage(chatId, newsBlock);
                 }
             } else {
@@ -285,8 +289,10 @@ public class EconomistBot extends TelegramLongPollingBot {
         message.enableHtml(true); // Enable HTML formatting for the message
 
         try {
+            LOGGER.info("Sending HTML message to chat ID: " + chatId + "; Content: " + htmlText.substring(0, Math.min(htmlText.length(), 100)) + "...");
             execute(message);
         } catch (TelegramApiException e) {
+            LOGGER.severe("Error sending HTML message: " + e.getMessage());
             e.printStackTrace();
         }
     }
