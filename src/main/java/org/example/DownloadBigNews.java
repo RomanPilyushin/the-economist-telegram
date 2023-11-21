@@ -44,22 +44,7 @@ public class DownloadBigNews {
                 .header("Pragma", "no-cache")
                 .header("Expires", "0");
 
-        // Use last-modified and etag headers for conditional requests
-        if (lastFetchedHeaders.containsKey("Last-Modified")) {
-            connection.header("If-Modified-Since", lastFetchedHeaders.get("Last-Modified"));
-        }
-        if (lastFetchedHeaders.containsKey("ETag")) {
-            connection.header("If-None-Match", lastFetchedHeaders.get("ETag"));
-        }
-
         Connection.Response response = connection.execute();
-        updateLastFetchedHeaders(response);
-
-        // Check for 304 Not Modified
-        if (response.statusCode() == 304) {
-            LOGGER.info("Content not modified since last fetch.");
-            return null; // Content not modified
-        }
 
         Document document = response.parse();
         Elements articleElements = document.select("div._article");

@@ -42,22 +42,10 @@ public class DownloadSmallNews {
                 .header("Pragma", "no-cache")
                 .header("Expires", "0");
 
-        // Use last-modified and etag headers for conditional requests
-        if (lastFetchedHeaders.containsKey("Last-Modified")) {
-            connection.header("If-Modified-Since", lastFetchedHeaders.get("Last-Modified"));
-        }
-        if (lastFetchedHeaders.containsKey("ETag")) {
-            connection.header("If-None-Match", lastFetchedHeaders.get("ETag"));
-        }
+        // Removed conditional headers for 'If-Modified-Since' and 'If-None-Match'
 
         Connection.Response response = connection.execute();
-        updateLastFetchedHeaders(response);
-
-        // Check for 304 Not Modified
-        if (response.statusCode() == 304) {
-            LOGGER.info("Content not modified since last fetch.");
-            return null; // Content not modified
-        }
+        // No need to call any method to update cached headers
 
         Document document = response.parse();
         Elements gobbetElements = document.select("div._gobbet");
