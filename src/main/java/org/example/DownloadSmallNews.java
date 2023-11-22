@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class DownloadSmallNews {
     private static final Logger LOGGER = Logger.getLogger(DownloadSmallNews.class.getName());
-
+    /*
     public static void main(String[] args) {
         try {
             LOGGER.info("Starting WebContentDownloader main method...");
@@ -30,7 +30,7 @@ public class DownloadSmallNews {
             LOGGER.severe("Error in downloading content: " + e.getMessage());
         }
     }
-
+    */
     public static String downloadContent() throws IOException {
         LOGGER.info("Starting content download...");
         String url = "https://www.economist.com/the-world-in-brief?nocache=" + System.currentTimeMillis();
