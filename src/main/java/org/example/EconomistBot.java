@@ -134,7 +134,7 @@ public class EconomistBot extends TelegramLongPollingBot {
         // Adjust to Kiev Time Zone (EET, UTC+2/UTC+3)
         ZoneId kievZoneId = ZoneId.of("Europe/Kiev");
         ZonedDateTime nowInKiev = ZonedDateTime.now(kievZoneId);
-        ZonedDateTime nextRun = nowInKiev.withHour(13).withMinute(0).withSecond(0);
+        ZonedDateTime nextRun = nowInKiev.withHour(13).withMinute(30).withSecond(0);
         if (nowInKiev.compareTo(nextRun) > 0)
             nextRun = nextRun.plusDays(1);
 
@@ -269,9 +269,14 @@ public class EconomistBot extends TelegramLongPollingBot {
         try {
             LOGGER.info("Sending HTML message to chat ID: " + chatId + "; Content: " + htmlText.substring(0, Math.min(htmlText.length(), 100)) + "...");
             execute(message);
+            Thread.sleep(500); // Pause for 1 second (1000 milliseconds)
         } catch (TelegramApiException e) {
             LOGGER.severe("Error sending HTML message: " + e.getMessage());
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt(); // Restore the interrupted status
+            LOGGER.severe("Interrupted while waiting to send the next message: " + e.getMessage());
         }
     }
+
 }

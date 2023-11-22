@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Dockerfile" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Dockerfile">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -168,23 +170,7 @@
       <workItem from="1700639652099" duration="1258000" />
       <workItem from="1700642125874" duration="1886000" />
       <workItem from="1700644178101" duration="4000" />
-      <workItem from="1700649903638" duration="1928000" />
-    </task>
-    <task id="LOCAL-00037" summary="Update railway.json">
-      <option name="closed" value="true" />
-      <created>1700163387321</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1700163387321</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Update port and address">
-      <option name="closed" value="true" />
-      <created>1700164281161</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1700164281161</updated>
+      <workItem from="1700649903638" duration="2335000" />
     </task>
     <task id="LOCAL-00039" summary="Updated railway.json">
       <option name="closed" value="true" />
@@ -562,7 +548,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700651774436</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651894015</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651894015</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651921365</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651921365</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
