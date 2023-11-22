@@ -30,14 +30,11 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 
 public class EconomistBot extends TelegramLongPollingBot {
-    private static final int MAX_MESSAGE_LENGTH = 4096; // Maximum length of a Telegram message
     private static final Logger LOGGER = Logger.getLogger(EconomistBot.class.getName());
     private static final Set<Long> subscribedUsers = new HashSet<>();
     private static String BOT_TOKEN;
     private static String BOT_USERNAME;
 
-    // Jetty server port
-    private static final int JETTY_SERVER_PORT = 8080; // Choose an appropriate port
 
     static {
         loadConfig();
@@ -122,7 +119,6 @@ public class EconomistBot extends TelegramLongPollingBot {
         }
     }
 
-
     private void handleStartCommand(long chatId) {
         if (!subscribedUsers.contains(chatId)) {
             subscribedUsers.add(chatId);
@@ -130,20 +126,6 @@ public class EconomistBot extends TelegramLongPollingBot {
             sendMessage(chatId, "Welcome! You have been subscribed.");
         }
         sendNewsUpdate(chatId); // Send news update to the user
-    }
-
-
-    /**
-     * Sends a long message by splitting it into smaller parts if necessary.
-     * @param chatId The chat ID to send the message to.
-     * @param longMessage The long message to be sent.
-     */
-    private void sendLongMessage(Long chatId, String longMessage) {
-        int length = longMessage.length();
-        for (int start = 0; start < length; start += MAX_MESSAGE_LENGTH) {
-            int end = Math.min(start + MAX_MESSAGE_LENGTH, length);
-            sendMessage(chatId, longMessage.substring(start, end));
-        }
     }
 
     private void scheduleDailyNews() {
@@ -169,7 +151,6 @@ public class EconomistBot extends TelegramLongPollingBot {
         SendMessage message = new SendMessage();
         message.setChatId(String.valueOf(chatId));
         message.setText(text);
-        // No parse mode should be set
         try {
             execute(message);
         } catch (TelegramApiException e) {

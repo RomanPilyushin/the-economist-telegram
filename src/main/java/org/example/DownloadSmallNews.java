@@ -15,7 +15,6 @@ import java.util.logging.Logger;
 
 public class DownloadSmallNews {
     private static final Logger LOGGER = Logger.getLogger(DownloadSmallNews.class.getName());
-    private static final Map<String, String> lastFetchedHeaders = new HashMap<>();
 
     public static void main(String[] args) {
         try {
@@ -42,10 +41,7 @@ public class DownloadSmallNews {
                 .header("Pragma", "no-cache")
                 .header("Expires", "0");
 
-        // Removed conditional headers for 'If-Modified-Since' and 'If-None-Match'
-
         Connection.Response response = connection.execute();
-        // No need to call any method to update cached headers
 
         Document document = response.parse();
         Elements gobbetElements = document.select("div._gobbet");
@@ -61,18 +57,6 @@ public class DownloadSmallNews {
         }
 
         return extractedContent.toString();
-    }
-
-    private static void updateLastFetchedHeaders(Connection.Response response) {
-        String lastModified = response.header("Last-Modified");
-        String eTag = response.header("ETag");
-
-        if (lastModified != null) {
-            lastFetchedHeaders.put("Last-Modified", lastModified);
-        }
-        if (eTag != null) {
-            lastFetchedHeaders.put("ETag", eTag);
-        }
     }
 
     static void saveToFile(String content, String fileName) throws IOException {

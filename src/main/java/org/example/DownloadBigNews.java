@@ -17,7 +17,6 @@ import java.util.logging.Logger;
 
 public class DownloadBigNews {
     private static final Logger LOGGER = Logger.getLogger(DownloadSmallNews.class.getName());
-    private static Map<String, String> lastFetchedHeaders = new HashMap<>();
 
     public static void main(String[] args) {
         try {
@@ -78,18 +77,6 @@ public class DownloadBigNews {
         }
 
         return extractedContent.toString();
-    }
-
-    private static void updateLastFetchedHeaders(Connection.Response response) {
-        String lastModified = response.header("Last-Modified");
-        String eTag = response.header("ETag");
-
-        if (lastModified != null) {
-            lastFetchedHeaders.put("Last-Modified", lastModified);
-        }
-        if (eTag != null) {
-            lastFetchedHeaders.put("ETag", eTag);
-        }
     }
 
     static void saveToFile(String content, String fileName) throws IOException {
