@@ -4,6 +4,11 @@ FROM openjdk:17
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install necessary tools
+RUN apt-get update && apt-get install -y \
+    xargs \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy the local code to the container
 COPY . .
 
