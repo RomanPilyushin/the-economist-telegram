@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Edit EconomistBot" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update database">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedBigHtmlContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/extractedBigHtmlContent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractedHtmlContent.html" beforeDir="false" afterPath="$PROJECT_DIR$/extractedHtmlContent.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,6 +22,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand />
@@ -161,14 +168,7 @@
       <workItem from="1700490761835" duration="475000" />
       <workItem from="1700550656285" duration="7187000" />
       <workItem from="1700591346569" duration="2000" />
-    </task>
-    <task id="LOCAL-00025" summary="Add config.properties">
-      <option name="closed" value="true" />
-      <created>1700150773618</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1700150773618</updated>
+      <workItem from="1700591440419" duration="752000" />
     </task>
     <task id="LOCAL-00026" summary="Add railway.json">
       <option name="closed" value="true" />
@@ -554,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700565057196</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Update database">
+      <option name="closed" value="true" />
+      <created>1700591573334</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1700591573334</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -573,7 +581,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated railway.json (add restartPolicyMaxRetries)" />
     <MESSAGE value="Edit extractNewsBlocks in EconomistBot.java" />
     <MESSAGE value="Change extractNewsBlocks" />
     <MESSAGE value="Edit EconomistBot.java" />
@@ -598,7 +605,8 @@
     <MESSAGE value="Add checking for cache" />
     <MESSAGE value="Edit Dockerfile" />
     <MESSAGE value="Edit EconomistBot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit EconomistBot" />
+    <MESSAGE value="Update database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update database" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
