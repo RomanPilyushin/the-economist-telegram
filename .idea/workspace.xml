@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Dockerfile">
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-    </list>
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Dockerfile" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -170,39 +168,7 @@
       <workItem from="1700639652099" duration="1258000" />
       <workItem from="1700642125874" duration="1886000" />
       <workItem from="1700644178101" duration="4000" />
-      <workItem from="1700649903638" duration="1610000" />
-    </task>
-    <task id="LOCAL-00033" summary="Add Jetty">
-      <option name="closed" value="true" />
-      <created>1700159648593</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1700159648593</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Incorporated Jetty to main class">
-      <option name="closed" value="true" />
-      <created>1700161448841</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1700161448841</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Provided Healthcheck">
-      <option name="closed" value="true" />
-      <created>1700161965659</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1700161965659</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Update railway.json">
-      <option name="closed" value="true" />
-      <created>1700163122656</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1700163122656</updated>
+      <workItem from="1700649903638" duration="1928000" />
     </task>
     <task id="LOCAL-00037" summary="Update railway.json">
       <option name="closed" value="true" />
@@ -564,7 +530,39 @@
       <option name="project" value="LOCAL" />
       <updated>1700651514572</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651556753</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651556753</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651672356</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651672356</updated>
+    </task>
+    <task id="LOCAL-00084" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651752738</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651752738</updated>
+    </task>
+    <task id="LOCAL-00085" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651774436</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651774436</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
