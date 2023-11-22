@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update database">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Dockerfile">
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,31 +170,7 @@
       <workItem from="1700639652099" duration="1258000" />
       <workItem from="1700642125874" duration="1886000" />
       <workItem from="1700644178101" duration="4000" />
-      <workItem from="1700649903638" duration="1256000" />
-    </task>
-    <task id="LOCAL-00030" summary="Add Dockerfile">
-      <option name="closed" value="true" />
-      <created>1700153110805</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1700153110805</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Update Dockerfile">
-      <option name="closed" value="true" />
-      <created>1700153661836</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1700153661836</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Update Dockerfile">
-      <option name="closed" value="true" />
-      <created>1700153685149</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1700153685149</updated>
+      <workItem from="1700649903638" duration="1610000" />
     </task>
     <task id="LOCAL-00033" summary="Add Jetty">
       <option name="closed" value="true" />
@@ -564,7 +540,31 @@
       <option name="project" value="LOCAL" />
       <updated>1700650462132</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651352439</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651352439</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651441140</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651441140</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Update Dockerfile">
+      <option name="closed" value="true" />
+      <created>1700651514572</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1700651514572</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +583,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Edit extractNewsBlocks in EconomistBot.java" />
     <MESSAGE value="Change extractNewsBlocks" />
     <MESSAGE value="Edit EconomistBot.java" />
     <MESSAGE value="Update sendDailyNews in EconomistBot.java" />
@@ -608,7 +607,8 @@
     <MESSAGE value="Edit Dockerfile" />
     <MESSAGE value="Edit EconomistBot" />
     <MESSAGE value="Update database" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update database" />
+    <MESSAGE value="Update Dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Dockerfile" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
