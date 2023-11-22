@@ -1,11 +1,13 @@
-# Use OpenJDK 17 as the base image
-FROM openjdk:17
+# Use OpenJDK 17 based on Debian Buster as the base image
+FROM openjdk:17-slim-buster
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Install necessary tools, including xargs
-RUN apk --no-cache add findutils
+RUN apt-get update && apt-get install -y \
+    findutils \
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy the local code to the container
 COPY . .
