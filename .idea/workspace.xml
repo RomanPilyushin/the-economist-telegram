@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update Dockerfile">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/EconomistBot.java" afterDir="false" />
+    <list default="true" id="1383c7cc-ef63-463a-bb1c-acb9c529efc0" name="Changes" comment="Update EconomistBot.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,15 +170,9 @@
       <workItem from="1700639652099" duration="1258000" />
       <workItem from="1700642125874" duration="1886000" />
       <workItem from="1700644178101" duration="4000" />
-      <workItem from="1700649903638" duration="2335000" />
-    </task>
-    <task id="LOCAL-00039" summary="Updated railway.json">
-      <option name="closed" value="true" />
-      <created>1700205176638</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1700205176638</updated>
+      <workItem from="1700649903638" duration="2622000" />
+      <workItem from="1700652642607" duration="9000" />
+      <workItem from="1700659949988" duration="8000" />
     </task>
     <task id="LOCAL-00040" summary="Updated railway.json (add restartPolicyMaxRetries)">
       <option name="closed" value="true" />
@@ -564,7 +558,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700651921365</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Update EconomistBot.java">
+      <option name="closed" value="true" />
+      <created>1700652331787</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1700652331787</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +585,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Change extractNewsBlocks" />
     <MESSAGE value="Edit EconomistBot.java" />
     <MESSAGE value="Update sendDailyNews in EconomistBot.java" />
     <MESSAGE value="Add class DownloadSmallNews.java and save massages formatting" />
@@ -608,7 +609,8 @@
     <MESSAGE value="Edit EconomistBot" />
     <MESSAGE value="Update database" />
     <MESSAGE value="Update Dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Dockerfile" />
+    <MESSAGE value="Update EconomistBot.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update EconomistBot.java" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
